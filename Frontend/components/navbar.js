@@ -7,16 +7,12 @@ const NavBar = () => {
     return(
         <View style={styles.container}>
             <Image
-            source={{
-                uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
-            }}
+            source={require('../assets/drimiral.png')}
             style={{width: 50, height: 50}}
             />
-            <Text style={styles.text}>Home</Text>
-            <Text style={styles.text}>Home</Text>
-            <Text style={styles.text}>Home</Text>
-            <Text style={styles.text}>Home</Text>
-            <Text style={styles.text}>Home</Text>
+            <Text className="text-white">Journal</Text>
+            <Text className="text-white">Music</Text>
+            <Text className="text-white">Home</Text>
         </View>
     )
 }
@@ -25,15 +21,13 @@ const styles = StyleSheet.create({
     container: {
       height: 60,
       flexDirection: "row",
-      justifyContent: "space-evenly",
-      padding: 15,
+      justifyContent: "space-between",
+      padding: 5,
       backgroundColor: "black",
-      alignContent: "flex-start"
+      alignContent: "flex-start",
+      marginTop: 35,
+      paddingRight: 100
     },
-    text: {
-        color: 'white',
-        fontSize: 20
-    }
   });
 
 export default NavBar;
