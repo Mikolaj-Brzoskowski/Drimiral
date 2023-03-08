@@ -1,23 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import React, {useState} from 'react';
-import { StyleSheet, ScrollView, View } from 'react-native';
-import NavBar from './components/navbar';
+import React from 'react';
+import NavBar from './components/Navbar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from './components/Home';
+import Home from './screens/HomeScreen';
+import Journal from './screens/JournalScreen';
+import Music from './screens/MusicScreen';
+import Stats from './screens/StatsScreen';
 
 const Stack = createNativeStackNavigator();
 
 const App = props => {
 
-  const [isHungry, setIsHungry] = useState(true);
-
   return (
     <NavigationContainer>
-      <NavBar/>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home}/>
-        </Stack.Navigator>
+      <Stack.Navigator screenOptions={{header: NavBar}}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Journal" component={Journal}/>
+        <Stack.Screen name="Music" component={Music}/>
+        <Stack.Screen name="Stats" component={Stats}/>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
