@@ -1,33 +1,30 @@
 import React from 'react'
-import { View, StyleSheet, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { useNavigation, useNavigationContainerRef} from '@react-navigation/native'
 
 const color = '#f06795'
 
-const NavBar = () => {
+export default function NavBar() {
+
+    const navigation = useNavigation()
+
     return(
-        <View style={styles.container}>
-            <Image
-            source={require('../assets/drimiral.png')}
-            style={{width: 50, height: 50}}
-            />
-            <Text className="text-white">Journal</Text>
-            <Text className="text-white">Music</Text>
-            <Text className="text-white">Home</Text>
+      <SafeAreaView className="pt-2 bg-white">
+        <View className="flex flex-row h-15 justify-between p-1.5 items-center bg-black pr-5 border-2 border-white-500 rounded-t-2xl">
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
+            <View>
+              <Image
+              source={require('../assets/drimiral.png')}
+              className=" h-10 w-10 p-4 rounded-full"
+              />
+              <Text className="text-white text-xs">Home</Text>
+            </View>
+          </TouchableWithoutFeedback>
+          <Text id="Journal" className="text-white text-xl" onPress={() => navigation.navigate('Journal')}>Journal</Text>
+          <Text id="Music" className="text-white text-xl" onPress={() => navigation.navigate('Music')}>Music</Text>
+          <Text id="Stats" className="text-white text-xl" onPress={() => navigation.navigate('Stats')}>Stats</Text>
         </View>
+      </SafeAreaView>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-      height: 60,
-      flexDirection: "row",
-      justifyContent: "space-between",
-      padding: 5,
-      backgroundColor: "black",
-      alignContent: "flex-start",
-      marginTop: 35,
-      paddingRight: 100
-    },
-  });
-
-export default NavBar;
