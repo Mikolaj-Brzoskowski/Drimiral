@@ -6,6 +6,8 @@ import Home from './screens/HomeScreen';
 import Journal from './screens/JournalScreen';
 import Music from './screens/MusicScreen';
 import Stats from './screens/StatsScreen';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,12 +15,14 @@ const App = props => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{header: NavBar}}>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Journal" component={Journal}/>
-        <Stack.Screen name="Music" component={Music}/>
-        <Stack.Screen name="Stats" component={Stats}/>
-      </Stack.Navigator>
+      <Provider store={store}>
+        <Stack.Navigator screenOptions={{header: NavBar}}>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Journal" component={Journal}/>
+          <Stack.Screen name="Music" component={Music}/>
+          <Stack.Screen name="Stats" component={Stats}/>
+        </Stack.Navigator>
+      </Provider>
     </NavigationContainer>
   );
 }
