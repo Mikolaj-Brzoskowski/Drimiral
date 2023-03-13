@@ -10,7 +10,7 @@ export default function BackArrow({text}) {
   return (
     <TouchableOpacity
         onPress={navigation.goBack}
-        className="bg-black rounded-b-full p-2 flex items-center">
+        className="bg-black rounded-b-full p-2 flex items-center self-center">
         <Text className="text-xs text-white">{text}</Text>
         <ArrowLeftIcon size={30} color='white'/>
     </TouchableOpacity>
