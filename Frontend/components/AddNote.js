@@ -8,7 +8,7 @@ export default function AddNote({onAddBtnClick}) {
     <View>
         <View className="p-3 pb-0">
             <TouchableOpacity 
-            className="bg-[#6159E6] rounded-full p-2 self-center"
+            className="bg-black rounded-full p-2 self-center"
             onPress={onAddBtnClick}
             >
             <PlusIcon size={30} color='white'/>
