@@ -5,21 +5,34 @@ import AddNote from '../components/AddNote';
 import DeleteNote from '../components/DeleteNote';
 import SearchBar from '../components/SearchBar';
 import Note from '../components/Note';
-import { addEntry } from '../features/journalSlice';
+import uuid from 'react-native-uuid';
+
 
 export default function Journal() {
 
   const [notes, setNotes] = useState([]);
   const [isDeleteButtonActive, setDeleteButtonActive] = useState(false)
 
-  const onAddBtnClick = event => {
-    setNotes(notes.concat({title: '', note: ''}));
-    addEntry({title: '', note: ''})
+  const onAddBtnClick = () => {
+    setNotes(notes.concat({title: '', note: '', id: uuid.v4()}));
+    //state here
+    //addEntry({title: '', note: ''})
   };
+
+  const onSaveBtnClick = (id, title, note) => {
+    const notesCopy = [...notes]
+    notesCopy[id] = {title: title, note: note, id: id}
+    setNotes(notesCopy)
+  }
 
   const onDelBtnClick = () => {
     setDeleteButtonActive(!isDeleteButtonActive)
   };
+
+  const onDelConfirmButtonClick = (id) => {
+    const notesCopy = notes.filter( note => note.id !== id)
+    setNotes(notesCopy)
+  }
 
   return (
     <ScrollView stickyHeaderIndices={[0]}>
@@ -33,8 +46,12 @@ export default function Journal() {
         </View>
       </View>
       <View className="bg-white">
-        {notes.map((note, idx) => (
-          <Note key={idx} title={`${note.title}`} note={`${note.note}`} isDeleteButtonActive={isDeleteButtonActive}/>
+        {notes.map((note) => (
+          <Note id={note.id} key={note.id} 
+          title={`${note.title}`} note={`${note.note}`} 
+          isDeleteButtonActive={isDeleteButtonActive} 
+          onDelConfirmButtonClick={onDelConfirmButtonClick} 
+          onSaveBtnClick={onSaveBtnClick}/>
         ))}
       </View>
     </ScrollView>
