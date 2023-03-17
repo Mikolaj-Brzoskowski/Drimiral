@@ -6,23 +6,22 @@ import DeleteNote from '../components/DeleteNote';
 import SearchBar from '../components/SearchBar';
 import Note from '../components/Note';
 import uuid from 'react-native-uuid';
+import { addEntry, editEntry, getEntries, removeEntry } from '../features/journalSlice';
+import { useDispatch, useSelector } from 'react-redux'
 
 
 export default function Journal() {
 
-  const [notes, setNotes] = useState([]);
   const [isDeleteButtonActive, setDeleteButtonActive] = useState(false)
+  const dispatch = useDispatch()
+  const notes = useSelector(getEntries)
 
   const onAddBtnClick = () => {
-    setNotes(notes.concat({title: '', note: '', id: uuid.v4()}));
-    //state here
-    //addEntry({title: '', note: ''})
-  };
+    dispatch(addEntry({title: '', note: '', id: uuid.v4()}))
+  }
 
   const onSaveBtnClick = (id, title, note) => {
-    const notesCopy = [...notes]
-    notesCopy[id] = {title: title, note: note, id: id}
-    setNotes(notesCopy)
+    dispatch(editEntry({title: title, note: note, id: id}))
   }
 
   const onDelBtnClick = () => {
@@ -30,8 +29,7 @@ export default function Journal() {
   };
 
   const onDelConfirmButtonClick = (id) => {
-    const notesCopy = notes.filter( note => note.id !== id)
-    setNotes(notesCopy)
+    dispatch(removeEntry({id}))
   }
 
   return (

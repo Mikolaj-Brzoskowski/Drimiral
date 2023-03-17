@@ -48,8 +48,6 @@ export const userSlice = createSlice({
 
 export const { editEntry, addEntry, removeEntry } = userSlice.actions
 
-export const getEntries = (state) => {
-    
-}
+export const getEntries = (state) => state.journal.entries
 
 export default userSlice.reducer
