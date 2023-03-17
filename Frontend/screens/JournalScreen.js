@@ -9,7 +9,6 @@ import uuid from 'react-native-uuid';
 import { addEntry, editEntry, getEntries, removeEntry } from '../features/journalSlice';
 import { useDispatch, useSelector } from 'react-redux'
 
-
 export default function Journal() {
 
   const [isDeleteButtonActive, setDeleteButtonActive] = useState(false)
@@ -17,11 +16,11 @@ export default function Journal() {
   const notes = useSelector(getEntries)
 
   const onAddBtnClick = () => {
-    dispatch(addEntry({title: '', note: '', id: uuid.v4()}))
+    dispatch(addEntry({title: '', note: '', id: uuid.v4(), date: new Date().toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone })}))
   }
 
-  const onSaveBtnClick = (id, title, note) => {
-    dispatch(editEntry({title: title, note: note, id: id}))
+  const onSaveBtnClick = (id, title, note, date) => {
+    dispatch(editEntry({title: title, note: note, id: id, date: date}))
   }
 
   const onDelBtnClick = () => {
@@ -46,10 +45,11 @@ export default function Journal() {
       <View className="bg-white">
         {notes.map((note) => (
           <Note id={note.id} key={note.id} 
-          title={`${note.title}`} note={`${note.note}`} 
+          title={`${note.title}`} note={`${note.note}`} date={`${note.date}`}
           isDeleteButtonActive={isDeleteButtonActive} 
           onDelConfirmButtonClick={onDelConfirmButtonClick} 
-          onSaveBtnClick={onSaveBtnClick}/>
+          onSaveBtnClick={onSaveBtnClick}
+          />
         ))}
       </View>
     </ScrollView>

@@ -2,7 +2,7 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { CheckIcon, TrashIcon } from 'react-native-heroicons/solid'
 
-export default function Note({id, title, note, isDeleteButtonActive, onDelConfirmButtonClick, onSaveBtnClick}) {
+export default function Note({id, title, note, date, isDeleteButtonActive, onDelConfirmButtonClick, onSaveBtnClick}) {
 
   const [titleValue, setTitleValue] = useState(title)
   const [noteValue, setNoteValue] = useState(note)
@@ -19,7 +19,7 @@ export default function Note({id, title, note, isDeleteButtonActive, onDelConfir
     }
     else if (valChanged) {
       return (<View className="flex-column mr-2 mt-1 justify-center items-center">
-      <TouchableOpacity className="bg-[#6159E6] rounded-full p-2" onPress={(e) => {onSaveBtnClick(id, titleValue, noteValue); setValChanges(false)}}>
+      <TouchableOpacity className="bg-[#6159E6] rounded-full p-2" onPress={(e) => {onSaveBtnClick(id, titleValue, noteValue, date); setValChanges(false)}}>
         <CheckIcon size={30} color='white'/>
       </TouchableOpacity>
       <Text>Save Note</Text>
@@ -48,6 +48,7 @@ export default function Note({id, title, note, isDeleteButtonActive, onDelConfir
         onChangeText={setNoteValue}
         onChange={(e) => setValChanges(true)}
         />
+        <Text className="text-xs">Created: {date}</Text>
         <View>
           {conditionalRender()}
         </View>
