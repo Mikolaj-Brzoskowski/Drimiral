@@ -1,9 +1,7 @@
 import React from 'react'
 import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { useNavigation, useNavigationContainerRef} from '@react-navigation/native'
-
-const color = '#f06795'
+import { useNavigation} from '@react-navigation/native'
 
 export default function NavBar() {
 
