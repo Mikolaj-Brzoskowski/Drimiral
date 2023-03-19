@@ -14,13 +14,14 @@ export default function Journal() {
   const [isDeleteButtonActive, setDeleteButtonActive] = useState(false)
   const dispatch = useDispatch()
   const notes = useSelector(getEntries)
+  const [searchQuery, setSearchQuery] = useState('')
 
   const onAddBtnClick = () => {
-    dispatch(addEntry({title: '', note: '', id: uuid.v4(), date: new Date().toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone })}))
+    dispatch(addEntry({title: '', note: '', id: uuid.v4(), date: new Date().toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone }), selectedColor: 'border-violet'}))
   }
 
-  const onSaveBtnClick = (id, title, note, date) => {
-    dispatch(editEntry({title: title, note: note, id: id, date: date}))
+  const saveFunction = (id, title, note, date, selectedColor) => {
+    dispatch(editEntry({title: title, note: note, id: id, date: date, selectedColor: selectedColor}))
   }
 
   const onDelBtnClick = () => {
@@ -31,24 +32,30 @@ export default function Journal() {
     dispatch(removeEntry({id}))
   }
 
+  const searchFliter = (element) => {
+    if (element.title.toLowerCase().includes(searchQuery.toLowerCase()) || element.note.toLowerCase().includes(searchQuery.toLowerCase())) {
+      return element
+    }
+  }
+
   return (
     <ScrollView stickyHeaderIndices={[0]}>
       <View className="p-1 bg-white flex flex-row flex-wrap">
         <BackArrow text='Journal'/>
         <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center">Dream Dairy</Text>
         <View className="w-screen p-1 bg-white flex flex-row justify-end">
-          <SearchBar/>
+          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
           <AddNote onAddBtnClick={onAddBtnClick} />
           <DeleteNote onDelBtnClick={onDelBtnClick} isDeleteButtonActive={isDeleteButtonActive}/>
         </View>
       </View>
       <View className="bg-white">
-        {notes.map((note) => (
+        {notes.filter(searchFliter).map((note) => (
           <Note id={note.id} key={note.id} 
-          title={`${note.title}`} note={`${note.note}`} date={`${note.date}`}
+          title={`${note.title}`} note={`${note.note}`} date={`${note.date}`} selectedColor={`${note.selectedColor}`}
           isDeleteButtonActive={isDeleteButtonActive} 
           onDelConfirmButtonClick={onDelConfirmButtonClick} 
-          onSaveBtnClick={onSaveBtnClick}
+          saveFunction={saveFunction}
           />
         ))}
       </View>
