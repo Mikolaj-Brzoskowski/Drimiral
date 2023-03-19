@@ -13,6 +13,8 @@ export default function ColorPicker({colorValue, setColorValue}) {
         value={colorValue}
         colors={['#6159E6', '#E65998', '#DEE659', '#59E6A7']}
         title={"Note color:"}
+        icon={
+          <View/>}
         />
     </View>
   )
