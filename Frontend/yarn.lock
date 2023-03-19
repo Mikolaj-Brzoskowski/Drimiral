@@ -1860,6 +1860,11 @@
     prompts "^2.4.0"
     semver "^6.3.0"
 
+"@react-native-picker/picker@2.4.8":
+  version "2.4.8"
+  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.4.8.tgz#a1a21f3d6ecadedbc3f0b691a444ddd7baa081f8"
+  integrity sha512-5NQ5XPo1B03YNqKFrV6h9L3CQaHlB80wd4ETHUEABRP2iLh7FHLVObX2GfziD+K/VJb8G4KZcZ23NFBFP1f7bg==
+
 "@react-native/assets@1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@react-native/assets/-/assets-1.0.0.tgz"
@@ -7651,6 +7656,11 @@ react-native-codegen@^0.71.5:
     flow-parser "^0.185.0"
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
+
+react-native-color-palette@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-color-palette/-/react-native-color-palette-2.2.0.tgz#be5dc50c20d22a704dfd7870f4bb43fdfb8df96f"
+  integrity sha512-5sAh7veeSMg7KOijnBTj4/A54JzfFfOjo7r9YYCnEF9HWgpMHr6oSjERM18qzP561FFVMElVOh3nCit1pvq6xQ==
 
 react-native-debugger@^1.1.0:
   version "1.1.0"

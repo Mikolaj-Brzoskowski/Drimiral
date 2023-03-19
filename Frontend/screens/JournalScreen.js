@@ -8,16 +8,18 @@ import Note from '../components/Note';
 import uuid from 'react-native-uuid';
 import { addEntry, editEntry, getEntries, removeEntry } from '../features/journalSlice';
 import { useDispatch, useSelector } from 'react-redux'
+import CollorButton from '../components/ColorButton';
 
 export default function Journal() {
 
   const [isDeleteButtonActive, setDeleteButtonActive] = useState(false)
+  const [isColorButtonActive, setColorButtonActive] = useState(false)
   const dispatch = useDispatch()
   const notes = useSelector(getEntries)
   const [searchQuery, setSearchQuery] = useState('')
 
   const onAddBtnClick = () => {
-    dispatch(addEntry({title: '', note: '', id: uuid.v4(), date: new Date().toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone }), selectedColor: 'border-violet'}))
+    dispatch(addEntry({title: '', note: '', id: uuid.v4(), date: new Date().toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone }), selectedColor: '#6159E6'}))
   }
 
   const saveFunction = (id, title, note, date, selectedColor) => {
@@ -26,6 +28,10 @@ export default function Journal() {
 
   const onDelBtnClick = () => {
     setDeleteButtonActive(!isDeleteButtonActive)
+  };
+
+  const onColorBtnClick = () => {
+    setColorButtonActive(!isColorButtonActive)
   };
 
   const onDelConfirmButtonClick = (id) => {
@@ -43,10 +49,13 @@ export default function Journal() {
       <View className="p-1 bg-white flex flex-row flex-wrap">
         <BackArrow text='Journal'/>
         <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center">Dream Dairy</Text>
-        <View className="w-screen p-1 bg-white flex flex-row justify-end">
+        <View className="w-full p-1 bg-white flex flex-column justify-end">
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-          <AddNote onAddBtnClick={onAddBtnClick} />
-          <DeleteNote onDelBtnClick={onDelBtnClick} isDeleteButtonActive={isDeleteButtonActive}/>
+          <View className="flex-row flex-auto justify-evenly">
+            <AddNote onAddBtnClick={onAddBtnClick} />
+            <DeleteNote onDelBtnClick={onDelBtnClick} isDeleteButtonActive={isDeleteButtonActive}/>
+            <CollorButton onColorBtnClick={onColorBtnClick} isColorButtonActive={isColorButtonActive}/>
+          </View>
         </View>
       </View>
       <View className="bg-white">
@@ -56,6 +65,7 @@ export default function Journal() {
           isDeleteButtonActive={isDeleteButtonActive} 
           onDelConfirmButtonClick={onDelConfirmButtonClick} 
           saveFunction={saveFunction}
+          isColorButtonActive={isColorButtonActive}
           />
         ))}
       </View>
