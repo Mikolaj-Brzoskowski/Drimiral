@@ -10,17 +10,17 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      black: colors.black,
+      black: '#0F0F0F',
       white: colors.white,
       gray: colors.gray,
       emerald: colors.emerald,
       indigo: colors.indigo,
-      red: colors.red,
+      red: '#BA2D0B',
       blue: colors.blue,
       violet: '#6159E6',
-      pink: '#E65998',
-      yellow: '#DEE659',
-      lime: '#59E6A7'
+      pink: '#E15A97',
+      yellow: '#FFD447',
+      lime: '#70EE9C'
     },
   },
   plugins: [],
