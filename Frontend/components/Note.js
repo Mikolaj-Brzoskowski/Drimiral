@@ -34,15 +34,17 @@ export default function Note({id, title, note, date, selectedColor, isDeleteButt
         className="font-bold text-2xl" 
         defaultValue={titleValue}
         onChangeText={setTitleValue}
+        cursorColor={`${colorValue}`}
         />
         <TextInput 
         placeholder="Type note here..." 
         keyboardType="default" 
         defaultValue={noteValue}
-        multiline={true} 
+        multiline
         className={`text-base flex-row w-full bg-gray-100 border-solid border-2 rounded self-center p-1 m-1`}
         style={{borderColor: colorValue}}
         onChangeText={setNoteValue}
+        cursorColor={`${colorValue}`}
         />
         <Text className="text-xs">Created: {date}</Text>
         {isColorButtonActive ? <ColorPicker colorValue={colorValue} setColorValue={setColorValue}/> : null}
