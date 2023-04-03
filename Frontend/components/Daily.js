@@ -1,28 +1,72 @@
-import { View, Text, Button, TextInput, Switch } from 'react-native'
+import { View, Text, Button, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import { Formik } from 'formik';
 import { daily_surv } from '../data/survey'
 import { RadioButton } from 'react-native-paper';
-import Slider from "react-native-a11y-slider";
+import RadioButtons from './RadioButtons';
+import { useNavigation } from '@react-navigation/native'
 
-export default function Questions() {
+export default function Daily() {
 
   const [booleanValue, setBooleanValue] = useState()
   const [booleanValue2, setBooleanValue2] = useState()
-  const [booleanValue3, setBooleanValue3] = useState()
-  const [dreamResponse, setDreamResponse] = useState('')
+  const [dreamResponse, setDreamResponse] = useState('Nie')
+  const [rateResponse, setRateResponse] = useState('Nie spałem')
+
+  const navigation = useNavigation()
 
   return (
     <View>
       <Formik
        initialValues={daily_surv}
-       onSubmit={ (values) => {console.log(values)}}
+       onSubmit={ (values) => {console.log(values); navigation.navigate('Home')}}
      >
       {({ handleChange, handleBlur, handleSubmit, values }) => (
           <View className="bg-white flex-columns">
             <View className="border-t-2 border-gray-300 w-full mt-2">
               <Text className="font-bold text-2xl text-center mt-2">{`${values[0].question}`}</Text>
-              <Slider min={1} max={6} values={[values[0].answer]} className='p-5' onChange={(value) => values[0].answer = value[0]}/>
+              <View className="flex-row justify-evenly p-3 flex-wrap">
+                <View className="flex-row">
+                  <RadioButton
+                  value='Nie spałem'
+                  status={ rateResponse === 'Nie spałem' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setRateResponse('Nie spałem')); values[0].answer = 'Nie spałem'}}
+                  />
+                  <Text className="text-lg m-1">Nie spałem</Text>
+                </View>
+                <View className="flex-row">
+                  <RadioButton
+                  value='Źle'
+                  status={ rateResponse === 'Źle' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setRateResponse('Źle')); values[0].answer = 'Źle'}}
+                  />
+                  <Text className="text-lg m-1">Źle</Text>
+                </View>
+                <View className="flex-row">
+                  <RadioButton
+                  value='Średnio'
+                  status={ rateResponse === 'Średnio' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setRateResponse('Średnio')); values[0].answer = 'Średnio'}}
+                  />
+                  <Text className="text-lg m-1">Średnio</Text>
+                </View>
+                <View className="flex-row">
+                  <RadioButton
+                  value='Dobrze'
+                  status={ rateResponse === 'Dobrze' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setRateResponse('Dobrze')); values[0].answer = 'Dobrze'}}
+                  />
+                  <Text className="text-lg m-1">Dobrze</Text>
+                </View>
+                <View className="flex-row">
+                  <RadioButton
+                  value='Wspaniale'
+                  status={ rateResponse === 'Wspaniale' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setRateResponse('Wspaniale')); values[0].answer = 'Wspaniale'}}
+                  />
+                  <Text className="text-lg m-1">Wspaniale</Text>
+                </View>
+              </View>
             </View>
             <View className="border-t-2 border-gray-300 w-full mt-2">
               <Text className="font-bold text-2xl text-center mt-2">{`${values[1].question}`}</Text>
@@ -35,7 +79,7 @@ export default function Questions() {
             </View>
             <View className="border-t-2 border-gray-300 w-full mt-2">
               <Text className="font-bold text-2xl text-center mt-2">{`${values[2].question}`}</Text>
-              <View>
+              <View className="flex-row justify-evenly p-3">
                 <View className="flex-row">
                   <RadioButton
                   value={false}
@@ -53,7 +97,7 @@ export default function Questions() {
                   <Text className="text-lg m-1">Tak</Text>
                 </View>
               </View>
-            </View>
+            </View >
             {(values[2].answer !== false) && (
               <View className="border-t-2 border-gray-300 w-full mt-2">
               <Text className="font-bold text-2xl text-center mt-2">{`${values[3].question}`}</Text>
@@ -68,7 +112,7 @@ export default function Questions() {
             )}
             <View className="border-t-2 border-gray-300 w-full mt-2">
               <Text className="font-bold text-2xl text-center mt-2">{`${values[4].question}`}</Text>
-              <View>
+              <View className="flex-row justify-evenly p-3">
                 <View className="flex-row">
                   <RadioButton
                   value={false}
@@ -103,7 +147,7 @@ export default function Questions() {
             )}
             <View className="border-t-2 border-gray-300 w-full mt-2">
               <Text className="font-bold text-2xl text-center mt-2">{`${values[6].question}`}</Text>
-              <View>
+              <View className="flex-row justify-evenly p-3">
                 <View className="flex-row">
                   <RadioButton
                   value='Nie'
@@ -131,27 +175,7 @@ export default function Questions() {
               </View>
             </View>
             {(values[6].answer !== 'Nie') && (
-            <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">{`${values[7].question}`}</Text>
-              <View>
-                <View className="flex-row">
-                  <RadioButton
-                  value={false}
-                  status={ !booleanValue3 ? 'checked' : 'unchecked' }
-                  onPress={() => {(setBooleanValue3(false)); values[7].answer = false}}
-                  />
-                  <Text className="text-lg m-1">Nie</Text>
-                </View>
-                <View className="flex-row">
-                  <RadioButton
-                    value={true}
-                    status={ booleanValue3 ? 'checked' : 'unchecked' }
-                    onPress={() => {(setBooleanValue3(true)); values[7].answer = true}}
-                    />
-                  <Text className="text-lg m-1">Tak</Text>
-                </View>
-              </View>
-            </View>
+            <RadioButtons values={values} idx={7}/>
             )}
             <View className="border-t-2 border-gray-300 w-full mt-2">
               <Text className="font-bold text-2xl text-center mt-2">{`${values[8].question}`}</Text>

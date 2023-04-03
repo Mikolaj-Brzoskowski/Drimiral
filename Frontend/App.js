@@ -9,6 +9,7 @@ import Stats from './screens/StatsScreen';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import Survey from './screens/SurveyScreen';
+import StartSurvScreen from './screens/StartSurvScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ const App = props => {
           <Stack.Screen name="Music" component={Music}/>
           <Stack.Screen name="Stats" component={Stats}/>
           <Stack.Screen name="Survey" component={Survey}/>
+          <Stack.Screen name="Start" component={StartSurvScreen}/>
         </Stack.Navigator>
       </Provider>
     </NavigationContainer>
