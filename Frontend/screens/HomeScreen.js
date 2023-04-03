@@ -8,7 +8,7 @@ export default function Home() {
 
   return (
     <ScrollView className="pt-2 bg-white h-auto p-1">
-      <Text className="text-red-500">Home</Text>
+      <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center">Homepage</Text>
       <TouchableOpacity onPress={() => navigation.navigate('Survey')}>
         <View className="flex-column flex-1 justify-center content-between items-center border-solid border-2 border-gray-300 rounded">
           <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center">Survey</Text>

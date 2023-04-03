@@ -17,13 +17,13 @@ export const start_surv = [
 ]
 
 export const daily_surv = [
-{ question: 'Jak dobrze spałxś dzisiaj?', type: 'range', answer: ''},
+{ question: 'Jak dobrze spałxś dzisiaj?', type: 'range', answer: 3},
 { question: 'Ile godzin dzisiaj spałxś?', type: 'number', answer: ''},
 { question: 'Czy obudziłxś się w środku nocy?', type: 'boolean', answer: false},
-{ question: 'Jeżeli tak, to ile razy w ciągu nocy?', type: 'number', answer: ''},
+{ question: 'Ile razy w ciągu nocy obudziłxś się?', type: 'number', answer: ''},
 { question: 'Czy słuchałxś muzyki przed snem?', type: 'boolean', answer: false},
-{ question: 'Jeżeli tak, jaki gatunek muzyczny dominował w trakcie słuchania przed snem?', type: 'text', answer: ''},
-{ question: 'Czy miałxś jakieś sny/koszmary?', type: 'dream_type', answer: ''},
-{ question: 'Jeżeli tak, to czy pamiętasz swój sen?', type: 'boolean', answer: false},
+{ question: 'Jaki gatunek muzyczny dominował w trakcie słuchania przed snem?', type: 'text', answer: ''},
+{ question: 'Czy miałxś jakieś sny/koszmary?', type: 'dream_type', answer: 'Nie'},
+{ question: 'Czy pamiętasz swój sen?', type: 'boolean', answer: false},
 { question: 'Dodatkowe informacje odnośnie snu, którymi chcesz się podzielić.', type: 'text', answer: ''}
 ]
