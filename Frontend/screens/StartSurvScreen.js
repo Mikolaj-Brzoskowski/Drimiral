@@ -8,7 +8,7 @@ export default function StartSurvScreen() {
   return (
     <ScrollView>
       <View className="p-1 bg-white flex flex-row flex-wrap">
-        <BackArrow text='Journal'/>
+        <BackArrow text='Starting'/>
         <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center">Initial questions</Text>
         <Starting/>
       </View>

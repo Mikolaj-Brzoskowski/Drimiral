@@ -25,8 +25,11 @@ const Starting = () => {
                 <RadioButtons values={values} idx={2}/>
                 <View className="border-t-2 border-gray-300 w-full mt-2">
                 <Text className="font-bold text-2xl text-center mt-2">{`${values[3].question}`}</Text>
-                <TextInput onChangeText={handleChange(`${3}.answer`)} 
-                onBlur={handleBlur(`${3}.answer`)} value={values[3].answer} 
+                <TextInput
+                name={`${3}.answer`}
+                onChangeText={handleChange(`${3}.answer`)} 
+                onBlur={handleBlur(`${3}.answer`)} 
+                value={values[3].answer} 
                 className="border rounded p-2 m-2 text-lg"
                 inputMode='numeric' 
                 style={{borderColor: '#6159E6'}} 
