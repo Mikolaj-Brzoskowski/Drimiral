@@ -23,6 +23,7 @@ export const daily_surv = [
 { question: 'Ile razy w ciągu nocy obudziłxś się?', answer: '0'},
 { question: 'Czy słuchałxś muzyki przed snem?', answer: false},
 { question: 'Jaki gatunek muzyczny dominował w trakcie słuchania przed snem?', answer: ''},
+{ question: 'Jaki poziom głośności dominował w słuchaniu muzyki przed snem?', answer: 'Cicho'},
 { question: 'Czy miałxś jakieś sny/koszmary?', answer: 'Nie'},
 { question: 'Czy pamiętasz swój sen?', answer: false},
 { question: 'Dodatkowe informacje odnośnie snu, którymi chcesz się podzielić.', answer: ''}

@@ -12,6 +12,7 @@ export default function Daily() {
   const [booleanValue2, setBooleanValue2] = useState()
   const [dreamResponse, setDreamResponse] = useState('Nie')
   const [rateResponse, setRateResponse] = useState('Nie spałem')
+  const [volResponnse, setVolResponnse] = useState('Cicho') 
 
   const navigation = useNavigation()
 
@@ -132,7 +133,8 @@ export default function Daily() {
               </View>
             </View>
             {(values[4].answer !== false) && (
-            <View className="border-t-2 border-gray-300 w-full mt-2">
+            <View>
+              <View className="border-t-2 border-gray-300 w-full mt-2">
               <Text className="font-bold text-2xl text-center mt-2">{`${values[5].question}`}</Text>
               <TextInput
                 onChangeText={handleChange(`${5}.answer`)}
@@ -143,16 +145,46 @@ export default function Daily() {
                 style={{borderColor: '#6159E6'}}
                 cursorColor='#6159E6'
                 />
+              </View>
+              <View className="border-t-2 border-gray-300 w-full mt-2">
+              <Text className="font-bold text-2xl text-center mt-2">{`${values[6].question}`}</Text>
+              <View className="flex-row justify-evenly p-3">
+                <View className="flex-row">
+                  <RadioButton
+                  value='Cicho'
+                  status={ volResponnse === 'Cicho' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setVolResponnse('Cicho')); values[6].answer = 'Cicho'}}
+                  />
+                  <Text className="text-lg m-1">Cicho</Text>
+                </View>
+                <View className="flex-row">
+                  <RadioButton
+                  value='Normalnie'
+                  status={ volResponnse === 'Normalnie' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setVolResponnse('Normalnie')); values[6].answer = 'Normalnie'}}
+                  />
+                  <Text className="text-lg m-1">Normalnie</Text>
+                </View>
+                <View className="flex-row">
+                  <RadioButton
+                  value='Głośno'
+                  status={ volResponnse === 'Głośno' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setVolResponnse('Głośno')); values[6].answer = 'Głośno'}}
+                  />
+                  <Text className="text-lg m-1">Głośno</Text>
+                </View>
+              </View>
+            </View>
             </View>
             )}
             <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">{`${values[6].question}`}</Text>
+              <Text className="font-bold text-2xl text-center mt-2">{`${values[7].question}`}</Text>
               <View className="flex-row justify-evenly p-3">
                 <View className="flex-row">
                   <RadioButton
                   value='Nie'
                   status={ dreamResponse === 'Nie' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setDreamResponse('Nie')); values[6].answer = 'Nie'}}
+                  onPress={() => {(setDreamResponse('Nie')); values[7].answer = 'Nie'}}
                   />
                   <Text className="text-lg m-1">Nie</Text>
                 </View>
@@ -160,7 +192,7 @@ export default function Daily() {
                   <RadioButton
                   value='Sny'
                   status={ dreamResponse === 'Sny' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setDreamResponse('Sny')); values[6].answer = 'Sny'}}
+                  onPress={() => {(setDreamResponse('Sny')); values[7].answer = 'Sny'}}
                   />
                   <Text className="text-lg m-1">Sny</Text>
                 </View>
@@ -168,21 +200,21 @@ export default function Daily() {
                   <RadioButton
                   value='Koszmary'
                   status={ dreamResponse === 'Koszmary' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setDreamResponse('Koszmary')); values[6].answer = 'Koszmary'}}
+                  onPress={() => {(setDreamResponse('Koszmary')); values[7].answer = 'Koszmary'}}
                   />
                   <Text className="text-lg m-1">Koszmary</Text>
                 </View>
               </View>
             </View>
-            {(values[6].answer !== 'Nie') && (
-            <RadioButtons values={values} idx={7}/>
+            {(values[7].answer !== 'Nie') && (
+            <RadioButtons values={values} idx={8}/>
             )}
             <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">{`${values[8].question}`}</Text>
+              <Text className="font-bold text-2xl text-center mt-2">{`${values[9].question}`}</Text>
               <TextInput
-                onChangeText={handleChange(`${8}.answer`)}
-                onBlur={handleBlur(`${8}.answer`)}
-                value={values[8].answer}
+                onChangeText={handleChange(`${9}.answer`)}
+                onBlur={handleBlur(`${9}.answer`)}
+                value={values[9].answer}
                 className="border rounded p-2 m-2 text-lg"
                 multiline
                 style={{borderColor: '#6159E6'}}
