@@ -204,6 +204,14 @@ export default function Daily() {
                   />
                   <Text className="text-lg m-1">Koszmary</Text>
                 </View>
+                <View className="flex-row">
+                  <RadioButton
+                  value='Oba'
+                  status={ dreamResponse === 'Oba' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setDreamResponse('Oba')); values[7].answer = 'Oba'}}
+                  />
+                  <Text className="text-lg m-1">Oba</Text>
+                </View>
               </View>
             </View>
             {(values[7].answer !== 'Nie') && (
