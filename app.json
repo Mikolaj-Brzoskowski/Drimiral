@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "Drimiral",
+    "slug": "Drimiral",
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/drimiral.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0F0F0F"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/drimiral.png",
+        "backgroundColor": "#0F0F0F"
+      },
+      "package": "com.pikussmietnikus.Drimiral"
+    },
+    "web": {
+      "favicon": "./assets/drimiral.png"
+    },
+    "plugins": [
+      "expo-localization"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "7c5dedcb-7e10-4f51-89dd-72f2bf1c24f3"
+      }
+    }
+  }
+}

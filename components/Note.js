@@ -31,7 +31,7 @@ export default function Note({id, title, note, date, selectedColor, isDeleteButt
         placeholder="Title" 
         keyboardType="default" 
         numberOfLines={1} 
-        className="font-bold text-2xl" 
+        className="font-bold text-xl" 
         defaultValue={titleValue}
         onChangeText={setTitleValue}
         cursorColor={`${colorValue}`}

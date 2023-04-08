@@ -4,7 +4,7 @@ const initialState = {
   entries: [],
 }
 
-export const userSlice = createSlice({
+export const journalSlice = createSlice({
   name: 'journal',
   initialState,
   reducers: {
@@ -46,8 +46,8 @@ export const userSlice = createSlice({
   },
 })
 
-export const { editEntry, addEntry, removeEntry } = userSlice.actions
+export const { editEntry, addEntry, removeEntry } = journalSlice.actions
 
 export const getEntries = (state) => state.journal.entries
 
-export default userSlice.reducer
+export default journalSlice.reducer

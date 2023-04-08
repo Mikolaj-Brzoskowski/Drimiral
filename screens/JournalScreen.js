@@ -1,5 +1,5 @@
 import { View, Text, ScrollView } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import BackArrow from '../components/BackArrow';
 import AddNote from '../components/AddNote';
 import DeleteNote from '../components/DeleteNote';
@@ -9,6 +9,8 @@ import uuid from 'react-native-uuid';
 import { addEntry, editEntry, getEntries, removeEntry } from '../features/journalSlice';
 import { useDispatch, useSelector } from 'react-redux'
 import CollorButton from '../components/ColorButton';
+import { useScrollToTop } from '@react-navigation/native';
+
 
 export default function Journal() {
 
@@ -17,9 +19,14 @@ export default function Journal() {
   const dispatch = useDispatch()
   const notes = useSelector(getEntries)
   const [searchQuery, setSearchQuery] = useState('')
+  const scrollRef = useRef()
 
   const onAddBtnClick = () => {
     dispatch(addEntry({title: '', note: '', id: uuid.v4(), date: new Date().toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone }), selectedColor: '#6159E6'}))
+    scrollRef.current?.scrollTo({
+      y: 0,
+      animated: true,
+    });
   }
 
   const saveFunction = (id, title, note, date, selectedColor) => {
@@ -45,7 +52,7 @@ export default function Journal() {
   }
 
   return (
-    <ScrollView stickyHeaderIndices={[0]}>
+    <ScrollView stickyHeaderIndices={[0]} ref={scrollRef}>
       <View className="p-1 bg-white flex flex-row flex-wrap">
         <BackArrow text='Journal'/>
         <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center">Dream Dairy</Text>
@@ -59,7 +66,7 @@ export default function Journal() {
         </View>
       </View>
       <View className="bg-white">
-        {notes.filter(searchFliter).map((note) => (
+        {notes.filter(searchFliter).reverse().map((note) => (
           <Note id={note.id} key={note.id} 
           title={`${note.title}`} note={`${note.note}`} date={`${note.date}`} selectedColor={`${note.selectedColor}`}
           isDeleteButtonActive={isDeleteButtonActive} 
