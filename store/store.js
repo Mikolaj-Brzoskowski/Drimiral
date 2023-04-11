@@ -1,5 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import journalReducer from '../features/journalSlice'
+import userReducer from '../features/userSlice'
 import logger from 'redux-logger'
 import {
   persistStore,
@@ -19,12 +20,15 @@ const persistConfig = {
   storage: AsyncStorage
 }
 
-const persistedReducer = persistReducer(persistConfig, journalReducer)
+const rootReducer = combineReducers({ 
+  user: userReducer,
+  journal: journalReducer
+})
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-  reducer: {
-    journal: persistedReducer,
-  },
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

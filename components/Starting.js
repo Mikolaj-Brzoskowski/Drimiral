@@ -6,17 +6,20 @@ import RateRadioButtons from './RateRadioButtons'
 import { RadioButton } from 'react-native-paper';
 import RadioButtons from './RadioButtons';
 import { useNavigation } from '@react-navigation/native'
+import { useDispatch } from 'react-redux'
+import { startSurveyDone } from '../features/userSlice'
 
 const Starting = () => { 
 
     const [booleanValue, setBooleanValue] = useState('Mężczyzna')
     const navigation = useNavigation()
+    const dispatch = useDispatch()
 
     return (
         <View>
         <Formik
         initialValues={start_surv}
-        onSubmit={ (values) => {console.log(values); navigation.navigate('Home')}}
+        onSubmit={ (values) => {console.log(values); navigation.navigate('Home'); dispatch(startSurveyDone())}}
         >
         {({ handleChange, handleBlur, handleSubmit, values }) => (
             <View className="bg-white flex-columns">

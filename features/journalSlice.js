@@ -8,7 +8,7 @@ export const journalSlice = createSlice({
   name: 'journal',
   initialState,
   reducers: {
-    resetState: (state) => {
+    resetJournalState: (state) => {
         state.entries = [];
     },
     editEntry: (state, action) => {
@@ -49,7 +49,7 @@ export const journalSlice = createSlice({
   },
 })
 
-export const { editEntry, addEntry, removeEntry, resetState } = journalSlice.actions
+export const { editEntry, addEntry, removeEntry, resetJournalState } = journalSlice.actions
 
 export const getEntries = (state) => state.journal.entries
 
