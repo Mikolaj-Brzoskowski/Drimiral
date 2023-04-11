@@ -51,4 +51,6 @@ export const journalSlice = createSlice({
 
 export const { editEntry, addEntry, removeEntry, resetState } = journalSlice.actions
 
+export const getEntries = (state) => state.journal.entries
+
 export default journalSlice.reducer
