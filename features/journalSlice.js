@@ -8,6 +8,9 @@ export const journalSlice = createSlice({
   name: 'journal',
   initialState,
   reducers: {
+    resetState: (state) => {
+        state.entries = [];
+    },
     editEntry: (state, action) => {
         const index = state.entries.findIndex(entry => entry.id === action.payload.id);
 
@@ -46,8 +49,6 @@ export const journalSlice = createSlice({
   },
 })
 
-export const { editEntry, addEntry, removeEntry } = journalSlice.actions
-
-export const getEntries = (state) => state.journal.entries
+export const { editEntry, addEntry, removeEntry, resetState } = journalSlice.actions
 
 export default journalSlice.reducer

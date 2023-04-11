@@ -9,7 +9,6 @@ import uuid from 'react-native-uuid';
 import { addEntry, editEntry, getEntries, removeEntry } from '../features/journalSlice';
 import { useDispatch, useSelector } from 'react-redux'
 import CollorButton from '../components/ColorButton';
-import { useScrollToTop } from '@react-navigation/native';
 
 
 export default function Journal() {
