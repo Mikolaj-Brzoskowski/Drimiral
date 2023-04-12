@@ -1,4 +1,4 @@
-import { View, Text, Button, TextInput } from 'react-native'
+import { View, Text, TouchableOpacity, TextInput } from 'react-native'
 import React, { useState } from 'react'
 import { Formik } from 'formik';
 import { daily_surv } from '../data/survey'
@@ -230,7 +230,9 @@ export default function Daily() {
                 />
             </View>
             <View className="m-5 flex-row justify-center">
-              <Button title="Submit survey" onPress={handleSubmit}/>
+              <TouchableOpacity className="p-3 align-middle justify-center rounded-full bg-violet" onPress={handleSubmit}>
+                <Text className="text-xl flex-row p-2 text-white">Submit survey</Text>
+              </TouchableOpacity>
             </View>
         </View>
       )}

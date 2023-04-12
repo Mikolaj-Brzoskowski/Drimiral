@@ -3,7 +3,7 @@ import moment from 'moment';
 
 const initialState = {
   username: '',
-  isStartSurveyDone: false,
+  isStartSurveyAvailable: true,
   lastDailySurvDate: '01/04/2023'
 }
 
@@ -13,7 +13,7 @@ export const userSlice = createSlice({
   reducers: {
     resetUserState: (state, action) => {
       state.name = ''
-      state.isStartSurveyDone = false;
+      state.isStartSurveyAvailable = true;
       state.lastDailySurvDate = '01/04/2023'
     },
     getUsername: (state, action) => {
@@ -26,7 +26,7 @@ export const userSlice = createSlice({
         state.username = ''
     },
     startSurveyDone: (state, action) => {
-      state.isStartSurveyDone = true;
+      state.isStartSurveyAvailable = false;
     },
     setDailyDate: (state, action) => {
       var date = moment();
@@ -38,6 +38,6 @@ export const userSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { getUsername, changeUsername, logoutUser, startSurveyDone, setDailyDate, resetUserState } = userSlice.actions
 
-export const isStartAvailable = (state) => state.user.isStartSurveyDone
+export const isStartAvailable = (state) => state.user.isStartSurveyAvailable
 
 export default userSlice.reducer

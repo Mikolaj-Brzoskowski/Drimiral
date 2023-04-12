@@ -3,15 +3,18 @@ import React from 'react'
 import BackArrow from '../components/BackArrow'
 import { ScrollView } from 'react-native'
 import Starting from '../components/Starting'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function StartSurvScreen() {
+export default function StartSurv() {
   return (
-    <ScrollView>
-      <View className="p-1 bg-white flex flex-row flex-wrap">
-        <BackArrow text='Starting'/>
-        <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center">Initial questions</Text>
-        <Starting/>
-      </View>
-    </ScrollView>
+    <SafeAreaView>
+      <ScrollView>
+        <View className="p-1 bg-white flex flex-row flex-wrap">
+          <Text className="self-center p-2 w-full text-3xl font-bold text-center">Starting questions</Text>
+          <Starting/>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+    
   )
 }
