@@ -5,6 +5,11 @@ import { daily_surv } from '../data/survey'
 import { RadioButton } from 'react-native-paper';
 import RadioButtons from './RadioButtons';
 import { useNavigation } from '@react-navigation/native'
+import { setDailyDate } from '../features/userSlice';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import moment from 'moment';
+import {DAILY_URL} from '@env'
 
 export default function Daily() {
 
@@ -12,18 +17,60 @@ export default function Daily() {
   const [booleanValue2, setBooleanValue2] = useState()
   const [dreamResponse, setDreamResponse] = useState('Nie')
   const [rateResponse, setRateResponse] = useState('Nie spałem')
-  const [volResponnse, setVolResponnse] = useState('Cicho') 
+  const [volResponnse, setVolResponnse] = useState('Cicho')
+  const [email, setEmail] = useState()
 
   const navigation = useNavigation()
+  const dispatch = useDispatch()
 
   return (
     <View>
       <Formik
        initialValues={daily_surv}
-       onSubmit={ (values) => {console.log(values); navigation.navigate('Home')}}
+       onSubmit={ (values) => {
+        const today = moment()
+        const sendObject = {
+          Time: moment(today, 'YYYY-MM-DD'),
+          Email: email,
+          Question_1: values[0].answer,
+          Question_2: values[1].answer,
+          Question_3: values[2].answer,
+          Question_4: values[3].answer,
+          Question_5: values[4].answer,
+          Question_6: values[5].answer,
+          Question_7: values[6].answer,
+          Question_8: values[7].answer,
+          Question_9: values[8].answer,
+          Question_10: values[9].answer
+        }
+        Object.keys(sendObject).forEach(key => {
+          if (sendObject[key] === true){
+            sendObject[key] = "Tak"
+          }
+          if (sendObject[key] === false){
+            sendObject[key] = "Nie"
+          }
+        });
+        axios.post(DAILY_URL, sendObject).then((response) => {
+          console.log(response.data)
+        }).catch((err) => {
+          console.log(err)
+        })
+        navigation.navigate('Home'); 
+        // dispatch(setDailyDate())
+      }}
      >
       {({ handleChange, handleBlur, handleSubmit, values }) => (
           <View className="bg-white flex-columns">
+            <View className="border-t-2 border-gray-300 w-full mt-2">
+              <Text className="font-bold text-2xl text-center mt-2">Email</Text>
+              <TextInput onChangeText={(e) => setEmail(e)} 
+              value={email}
+              className="border rounded p-2 m-2 text-lg"
+              inputMode='email'
+              style={{borderColor: '#6159E6'}} 
+              cursorColor='#6159E6'/>
+            </View>
             <View className="border-t-2 border-gray-300 w-full mt-2">
               <Text className="font-bold text-2xl text-center mt-2">{`${values[0].question}`}</Text>
               <View className="flex-row justify-evenly p-3 flex-wrap">

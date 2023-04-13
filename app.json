@@ -4,7 +4,7 @@
     "slug": "Drimiral",
     "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/drimiral.png",
+    "icon": "./assets/drimiral_icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -19,13 +19,13 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/drimiral.png",
+        "foregroundImage": "./assets/drimiral_icon.png",
         "backgroundColor": "#0F0F0F"
       },
       "package": "com.pikussmietnikus.Drimiral"
     },
     "web": {
-      "favicon": "./assets/drimiral.png"
+      "favicon": "./assets/drimiral_icon.png"
     },
     "plugins": [
       "expo-localization"

@@ -4,7 +4,7 @@ import moment from 'moment';
 const initialState = {
   username: '',
   isStartSurveyAvailable: true,
-  lastDailySurvDate: '01/04/2023'
+  lastDailySurvDate: moment('01/01/2000', 'MM/DD/YYYY')
 }
 
 export const userSlice = createSlice({
@@ -14,7 +14,7 @@ export const userSlice = createSlice({
     resetUserState: (state, action) => {
       state.name = ''
       state.isStartSurveyAvailable = true;
-      state.lastDailySurvDate = '01/04/2023'
+      state.lastDailySurvDate = moment('01/01/2000', 'MM/DD/YYYY')
     },
     getUsername: (state, action) => {
 
@@ -29,8 +29,8 @@ export const userSlice = createSlice({
       state.isStartSurveyAvailable = false;
     },
     setDailyDate: (state, action) => {
-      var date = moment();
-      var currentDate = date.format('D/MM/YYYY');
+      const today = moment().format('L')
+      state.lastDailySurvDate = moment(today, 'MM/DD/YYYY');
     }
   },
 })
@@ -39,5 +39,6 @@ export const userSlice = createSlice({
 export const { getUsername, changeUsername, logoutUser, startSurveyDone, setDailyDate, resetUserState } = userSlice.actions
 
 export const isStartAvailable = (state) => state.user.isStartSurveyAvailable
+export const lastDailyDate = (state) => state.user.lastDailySurvDate
 
 export default userSlice.reducer
