@@ -8,21 +8,69 @@ import RadioButtons from './RadioButtons';
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
 import { startSurveyDone } from '../features/userSlice'
+import moment from 'moment';
+import axios from 'axios';
+import {START_URL} from '@env'
 
 const Starting = () => { 
 
     const [booleanValue, setBooleanValue] = useState('Mężczyzna')
     const navigation = useNavigation()
     const dispatch = useDispatch()
+    const [email, setEmail] = useState()
 
     return (
         <View>
         <Formik
         initialValues={start_surv}
-        onSubmit={ (values) => {console.log(values); navigation.navigate('Home'); dispatch(startSurveyDone())}}
+        onSubmit={ (values) => {
+            const today = moment()
+            const sendObject = {
+            Time: moment(today, 'YYYY-MM-DD, h:mm:ss').format('lll'),
+            Email: email,
+            Question_1: values[0].answer,
+            Question_2: values[1].answer,
+            Question_3: values[2].answer,
+            Question_4: values[3].answer,
+            Question_5: values[4].answer,
+            Question_6: values[5].answer,
+            Question_7: values[6].answer,
+            Question_8: values[7].answer,
+            Question_9: values[8].answer,
+            Question_10: values[9].answer,
+            Question_11: values[10].answer,
+            Question_12: values[11].answer,
+            Question_13: values[12].answer,
+            Age: values[13].answer,
+            Gender: values[14].answer
+            }
+            Object.keys(sendObject).forEach(key => {
+            if (sendObject[key] === true){
+                sendObject[key] = "Tak"
+            }
+            if (sendObject[key] === false){
+                sendObject[key] = "Nie"
+            }
+            });
+            axios.post(START_URL, sendObject).then((response) => {
+            console.log(response.data)
+            }).catch((err) => {
+            console.log(err)
+            })
+            navigation.navigate('Home'); 
+            dispatch(startSurveyDone())}}
         >
         {({ handleChange, handleBlur, handleSubmit, values }) => (
             <View className="bg-white flex-columns">
+                <View className="border-t-2 border-gray-300 w-full mt-2">
+                    <Text className="font-bold text-2xl text-center mt-2">Email</Text>
+                    <TextInput onChangeText={(e) => setEmail(e)} 
+                    value={email}
+                    className="border rounded p-2 m-2 text-lg"
+                    inputMode='email'
+                    style={{borderColor: '#6159E6'}} 
+                    cursorColor='#6159E6'/>
+                </View>
                 <RadioButtons values={values} idx={0}/>
                 <RadioButtons values={values} idx={1}/>
                 <RadioButtons values={values} idx={2}/>
@@ -85,8 +133,8 @@ const Starting = () => {
                             <View className="flex-row">
                                 <RadioButton
                                 value='Wolę nie podawać'
-                                status={ booleanValue === 'Często' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setBooleanValue('Często')); values[14].answer = 'Często'}}
+                                status={ booleanValue === 'Wolę nie podawać' ? 'checked' : 'unchecked' }
+                                onPress={() => {(setBooleanValue('Wolę nie podawać')); values[14].answer = 'Wolę nie podawać'}}
                                 />
                                 <Text className="text-lg m-1">Wolę nie podawać</Text>
                             </View>

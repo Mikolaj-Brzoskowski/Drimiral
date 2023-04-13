@@ -30,18 +30,18 @@ export default function Daily() {
        onSubmit={ (values) => {
         const today = moment()
         const sendObject = {
-          Time: moment(today, 'YYYY-MM-DD'),
+          Time: moment(today, 'YYYY-MM-DD, h:mm:ss').format('lll'),
           Email: email,
           Question_1: values[0].answer,
           Question_2: values[1].answer,
           Question_3: values[2].answer,
-          Question_4: values[3].answer,
-          Question_5: values[4].answer,
-          Question_6: values[5].answer,
-          Question_7: values[6].answer,
-          Question_8: values[7].answer,
-          Question_9: values[8].answer,
-          Question_10: values[9].answer
+          Question_4: values[7].answer,
+          Question_5: values[9].answer,
+          Question_6: values[3].answer,
+          Question_7: values[4].answer,
+          Question_8: values[5].answer,
+          Question_9: values[6].answer,
+          Question_10: values[8].answer
         }
         Object.keys(sendObject).forEach(key => {
           if (sendObject[key] === true){
@@ -57,7 +57,7 @@ export default function Daily() {
           console.log(err)
         })
         navigation.navigate('Home'); 
-        // dispatch(setDailyDate())
+        dispatch(setDailyDate())
       }}
      >
       {({ handleChange, handleBlur, handleSubmit, values }) => (
