@@ -1,4 +1,4 @@
-STATE USUWA SIĘ PRZY UPDATE???
+~~STATE USUWA SIĘ PRZY UPDATE???~~ (jednak chyba nie dopóki się nie zmieni store config)
 Notatki zwinięte defaultowo, rozwijają się po kliknięciu na nie/na przycisk
 Homepage ostatnia zapisana notatka
 Przebudowa navbaru na dół?

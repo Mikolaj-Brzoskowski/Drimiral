@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, TextInput } from 'react-native'
+import { View, Text, TouchableOpacity, TextInput, Alert } from 'react-native'
 import React, {useState} from 'react'
 import { Formik } from 'formik'
 import { start_surv } from '../data/survey'
@@ -11,6 +11,7 @@ import { startSurveyDone } from '../features/userSlice'
 import moment from 'moment';
 import axios from 'axios';
 import {START_URL} from '@env'
+import NetInfo from '@react-native-community/netinfo';
 
 const Starting = () => { 
 
@@ -20,16 +21,19 @@ const Starting = () => {
     const [email, setEmail] = useState()
 
     const getConnectionStatus = async () => {
-        const NetworkStatus = await Network.getNetworkStateAsync();
-        return NetworkStatus.isConnected
+        var status = false
+        await NetInfo.fetch().then(state => {
+          status = state.isConnected;
+        });
+        return status;
     }
     
     const createConnectionAlert = () =>
     Alert.alert('No Network Connection!', 'Please connect to the Internet before sending survey.', [
-        {
+      {
         text: 'Ok',
         style: 'cancel',
-        }
+      }
     ]);
 
     return (

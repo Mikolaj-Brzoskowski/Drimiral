@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import moment from 'moment';
 import {DAILY_URL} from '@env'
-import * as Network from 'expo-network';
+import NetInfo from '@react-native-community/netinfo';
 
 export default function Daily() {
 
@@ -25,17 +25,20 @@ export default function Daily() {
   const dispatch = useDispatch()
 
   const getConnectionStatus = async () => {
-    const NetworkStatus = await Network.getNetworkStateAsync();
-    return NetworkStatus.isConnected
+    var status = false
+    await NetInfo.fetch().then(state => {
+      status = state.isConnected;
+    });
+    return status;
   }
 
   const createConnectionAlert = () =>
-    Alert.alert('No Network Connection!', 'Please connect to the Internet before sending survey.', [
-      {
-        text: 'Ok',
-        style: 'cancel',
-      }
-    ]);
+  Alert.alert('No Network Connection!', 'Please connect to the Internet before sending survey.', [
+    {
+      text: 'Ok',
+      style: 'cancel',
+    }
+  ]);
 
   return (
     <View>
@@ -44,7 +47,7 @@ export default function Daily() {
        onSubmit={ (values) => {
         if (getConnectionStatus()) {
           const today = moment()
-        const sendObject = {
+          const sendObject = {
           Time: moment(today, 'YYYY-MM-DD, h:mm:ss').format('lll'),
           Email: email,
           Question_1: values[0].answer,
