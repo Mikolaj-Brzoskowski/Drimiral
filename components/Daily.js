@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, TextInput } from 'react-native'
+import { View, Text, TouchableOpacity, TextInput, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { Formik } from 'formik';
 import { daily_surv } from '../data/survey'
@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import moment from 'moment';
 import {DAILY_URL} from '@env'
+import * as Network from 'expo-network';
 
 export default function Daily() {
 
@@ -23,12 +24,26 @@ export default function Daily() {
   const navigation = useNavigation()
   const dispatch = useDispatch()
 
+  const getConnectionStatus = async () => {
+    const NetworkStatus = await Network.getNetworkStateAsync();
+    return NetworkStatus.isConnected
+  }
+
+  const createConnectionAlert = () =>
+    Alert.alert('No Network Connection!', 'Please connect to the Internet before sending survey.', [
+      {
+        text: 'Ok',
+        style: 'cancel',
+      }
+    ]);
+
   return (
     <View>
       <Formik
        initialValues={daily_surv}
        onSubmit={ (values) => {
-        const today = moment()
+        if (getConnectionStatus()) {
+          const today = moment()
         const sendObject = {
           Time: moment(today, 'YYYY-MM-DD, h:mm:ss').format('lll'),
           Email: email,
@@ -58,6 +73,10 @@ export default function Daily() {
         })
         navigation.navigate('Home'); 
         dispatch(setDailyDate())
+        }
+        else {
+          createConnectionAlert()
+        }
       }}
      >
       {({ handleChange, handleBlur, handleSubmit, values }) => (

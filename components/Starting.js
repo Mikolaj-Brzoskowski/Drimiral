@@ -19,11 +19,25 @@ const Starting = () => {
     const dispatch = useDispatch()
     const [email, setEmail] = useState()
 
+    const getConnectionStatus = async () => {
+        const NetworkStatus = await Network.getNetworkStateAsync();
+        return NetworkStatus.isConnected
+    }
+    
+    const createConnectionAlert = () =>
+    Alert.alert('No Network Connection!', 'Please connect to the Internet before sending survey.', [
+        {
+        text: 'Ok',
+        style: 'cancel',
+        }
+    ]);
+
     return (
         <View>
         <Formik
         initialValues={start_surv}
         onSubmit={ (values) => {
+            if (getConnectionStatus()) {
             const today = moment()
             const sendObject = {
             Time: moment(today, 'YYYY-MM-DD, h:mm:ss').format('lll'),
@@ -58,8 +72,11 @@ const Starting = () => {
             console.log(err)
             })
             navigation.navigate('Home'); 
-            dispatch(startSurveyDone())}}
-        >
+            dispatch(startSurveyDone())}
+            else {
+                createConnectionAlert()
+            }
+        }}>
         {({ handleChange, handleBlur, handleSubmit, values }) => (
             <View className="bg-white flex-columns">
                 <View className="border-t-2 border-gray-300 w-full mt-2">

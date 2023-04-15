@@ -19,6 +19,7 @@
     "eas-cli": "^3.9.2",
     "expo": "~48.0.5",
     "expo-localization": "~14.1.1",
+    "expo-network": "^5.2.1",
     "expo-status-bar": "~1.4.4",
     "formik": "^2.2.9",
     "moment": "^2.29.4",

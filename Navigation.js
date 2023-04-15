@@ -16,6 +16,10 @@ const Stack = createNativeStackNavigator();
 
 const Navigation = props => {
 
+  const networkStatus = async () => {
+    await Network.getNetworkStateAsync().isConnected;
+  }
+
   return (
     <NavigationContainer>
         <Stack.Navigator screenOptions={{header: NavBar}}>

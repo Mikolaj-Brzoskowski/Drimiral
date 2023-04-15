@@ -1,7 +1,9 @@
+STATE USUWA SIĘ PRZY UPDATE???
 Notatki zwinięte defaultowo, rozwijają się po kliknięciu na nie/na przycisk
 Homepage ostatnia zapisana notatka
 Przebudowa navbaru na dół?
 nie wiem zmiana delete?
+~~sprawdzanie połączenia z internetem~~
 ~~scroll to y=0 at add note~~
 ~~strzałka nawigacja do Home~~
 ~~Mniejsza czcionka tytułu?~~
