@@ -9,7 +9,6 @@ import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
 import { startSurveyDone } from '../features/userSlice'
 import moment from 'moment';
-import axios from 'axios';
 import {START_URL} from '@env'
 import NetInfo from '@react-native-community/netinfo';
 
@@ -69,11 +68,17 @@ const Starting = () => {
             sendObject[key] = "Nie"
         }
         });
-        axios.post(START_URL, sendObject).then((response) => {
-        console.log(response.data)
-        }).catch((err) => {
-        console.log(err)
-        })
+        fetch(START_URL, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        body: JSON.stringify(sendObject),
+        }).then(response => console.log(response.data))
+        .catch(error => {
+        console.error(error);
+        });
         navigation.navigate('Home'); 
         dispatch(startSurveyDone())
     }

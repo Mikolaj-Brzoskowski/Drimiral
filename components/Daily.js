@@ -7,7 +7,6 @@ import RadioButtons from './RadioButtons';
 import { useNavigation } from '@react-navigation/native'
 import { setDailyDate } from '../features/userSlice';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
 import moment from 'moment';
 import {DAILY_URL} from '@env'
 import NetInfo from '@react-native-community/netinfo';
@@ -68,11 +67,17 @@ export default function Daily() {
         sendObject[key] = "Nie"
       }
     });
-    axios.post(DAILY_URL, sendObject).then((response) => {
-      console.log(response.data)
-    }).catch((err) => {
-      console.log(err)
-    })
+    fetch(DAILY_URL, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+        body: JSON.stringify(sendObject),
+        }).then(response => console.log(response.data))
+        .catch(error => {
+        console.error(error);
+        });
     navigation.navigate('Home'); 
     dispatch(setDailyDate())
     }
