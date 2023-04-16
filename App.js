@@ -1,10 +1,8 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
 import { store, persistor } from './store/store';
 import { PersistGate } from 'redux-persist/integration/react'
 import Navigation from './Navigation';
-import * as Network from 'expo-network';
 
 const App = props => {
   
