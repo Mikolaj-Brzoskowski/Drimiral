@@ -14,7 +14,7 @@ export default function Welcome() {
           style={{resizeMode: 'contain',
           height: 300,
           width: 300}}
-          source={{uri: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExODFkMWNhZDUxZDhmMzJhMTYzMmRjZDIyNzE2NDYzNDc2ZWYxYmM5MiZjdD1n/xUPGGDNsLvqsBOhuU0/giphy.gif'}} />
+          source={require('../assets/welcome.gif')} />
         <Text className="text-xl flex-row p-3 mb-3">Hello, welcome to my Drimiral app! Before we get started, you need to answer for several questions.</Text>
         <TouchableOpacity className="p-3 align-middle justify-center rounded-full bg-violet" onPress={() => navigation.navigate("Start")}>
             <Text className="text-xl flex-row p-2 text-white">Start the survey</Text>

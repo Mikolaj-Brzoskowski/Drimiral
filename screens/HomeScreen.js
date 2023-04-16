@@ -22,7 +22,7 @@ export default function Home() {
         <TouchableOpacity onPress={() => navigation.navigate('Survey')} className="m-2 h-100 w-100 flex-column flex-1 justify-center content-between items-center">
           <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center">Survey</Text>
           <Image
-          source={{uri: 'https://cdn-icons-png.flaticon.com/512/10075/10075503.png'}}
+          source={require('../assets/daily.png')}
           className=" h-60 w-60"/>
           <Text className="text-base p-1 m-1">Please take a minute to answer daily questions about your sleep.</Text>
         </TouchableOpacity>
@@ -48,10 +48,10 @@ export default function Home() {
       <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center">Homepage</Text>
       {isDailyAvailable()}
       {/* buttons for development only */}
-      <View className="flex-row justify-between mt-2">
+      {/* <View className="flex-row justify-between mt-2">
         <Button title="Reset user State" onPress={(e) => dispatch(resetUserState())}/>
         <Button title="Reset journal State" onPress={(e) => dispatch(resetJournalState())}/>
-      </View>
+      </View> */}
     </ScrollView>
   )
 }

@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, TextInput, Alert } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Formik } from 'formik';
 import { daily_surv } from '../data/survey'
 import { RadioButton } from 'react-native-paper';
@@ -24,14 +24,65 @@ export default function Daily() {
   const navigation = useNavigation()
   const dispatch = useDispatch()
 
-  const getConnectionStatus = async () => {
-    var status = false
-    await NetInfo.fetch().then(state => {
-      status = state.isConnected;
-    });
-    return status;
-  }
+  const [values, setValues] = useState()
+  const [netStatus, setNetStatus] = useState()
+  const isFirstRender = useRef(true);
 
+  useEffect(() => {
+      if (isFirstRender.current) {
+          isFirstRender.current = false;
+          return;
+      }
+      else {
+          if (netStatus){
+              sendValues()
+          }
+          else if (netStatus === false) {
+              createConnectionAlert()
+              setNetStatus()
+          }
+      }
+  },[netStatus])
+
+  const sendValues = () => {
+      const today = moment()
+      const sendObject = {
+      Time: moment(today, 'YYYY-MM-DD, h:mm:ss').format('lll'),
+      Email: email,
+      Question_1: values[0].answer,
+      Question_2: values[1].answer,
+      Question_3: values[2].answer,
+      Question_4: values[7].answer,
+      Question_5: values[9].answer,
+      Question_6: values[3].answer,
+      Question_7: values[4].answer,
+      Question_8: values[5].answer,
+      Question_9: values[6].answer,
+      Question_10: values[8].answer
+    }
+    Object.keys(sendObject).forEach(key => {
+      if (sendObject[key] === true){
+        sendObject[key] = "Tak"
+      }
+      if (sendObject[key] === false){
+        sendObject[key] = "Nie"
+      }
+    });
+    axios.post(DAILY_URL, sendObject).then((response) => {
+      console.log(response.data)
+    }).catch((err) => {
+      console.log(err)
+    })
+    navigation.navigate('Home'); 
+    dispatch(setDailyDate())
+    }
+
+  const getConnectionStatus = async () => {
+      await NetInfo.fetch().then(state => {
+        setNetStatus(state.isConnected);
+      });
+  }
+  
   const createConnectionAlert = () =>
   Alert.alert('No Network Connection!', 'Please connect to the Internet before sending survey.', [
     {
@@ -45,43 +96,9 @@ export default function Daily() {
       <Formik
        initialValues={daily_surv}
        onSubmit={ (values) => {
-        if (getConnectionStatus()) {
-          const today = moment()
-          const sendObject = {
-          Time: moment(today, 'YYYY-MM-DD, h:mm:ss').format('lll'),
-          Email: email,
-          Question_1: values[0].answer,
-          Question_2: values[1].answer,
-          Question_3: values[2].answer,
-          Question_4: values[7].answer,
-          Question_5: values[9].answer,
-          Question_6: values[3].answer,
-          Question_7: values[4].answer,
-          Question_8: values[5].answer,
-          Question_9: values[6].answer,
-          Question_10: values[8].answer
-        }
-        Object.keys(sendObject).forEach(key => {
-          if (sendObject[key] === true){
-            sendObject[key] = "Tak"
-          }
-          if (sendObject[key] === false){
-            sendObject[key] = "Nie"
-          }
-        });
-        axios.post(DAILY_URL, sendObject).then((response) => {
-          console.log(response.data)
-        }).catch((err) => {
-          console.log(err)
-        })
-        navigation.navigate('Home'); 
-        dispatch(setDailyDate())
-        }
-        else {
-          createConnectionAlert()
-        }
-      }}
-     >
+        setValues(values);
+        getConnectionStatus()
+      }}>
       {({ handleChange, handleBlur, handleSubmit, values }) => (
           <View className="bg-white flex-columns">
             <View className="border-t-2 border-gray-300 w-full mt-2">
