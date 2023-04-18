@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import moment from 'moment';
 import {DAILY_URL} from '@env'
 import NetInfo from '@react-native-community/netinfo';
+import axios from 'axios';
 
 export default function Daily() {
 
@@ -67,17 +68,11 @@ export default function Daily() {
         sendObject[key] = "Nie"
       }
     });
-    fetch(DAILY_URL, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-        body: JSON.stringify(sendObject),
-        }).then(response => console.log(response.data))
-        .catch(error => {
-        console.error(error);
-        });
+    axios.post(DAILY_URL, sendObject).then((response) => {
+      console.log(response.data)
+    }).catch((err) => {
+      console.log(err)
+    })
     navigation.navigate('Home'); 
     dispatch(setDailyDate())
     }

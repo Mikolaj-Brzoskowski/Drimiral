@@ -11,6 +11,7 @@ import { startSurveyDone } from '../features/userSlice'
 import moment from 'moment';
 import {START_URL} from '@env'
 import NetInfo from '@react-native-community/netinfo';
+import axios from 'axios';
 
 const Starting = () => { 
 
@@ -68,17 +69,11 @@ const Starting = () => {
             sendObject[key] = "Nie"
         }
         });
-        fetch(START_URL, {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-        body: JSON.stringify(sendObject),
-        }).then(response => console.log(response.data))
-        .catch(error => {
-        console.error(error);
-        });
+        axios.post(START_URL, sendObject).then((response) => {
+        console.log(response.data)
+        }).catch((err) => {
+        console.log(err)
+        })
         navigation.navigate('Home'); 
         dispatch(startSurveyDone())
     }
