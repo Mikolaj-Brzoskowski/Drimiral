@@ -10,7 +10,7 @@
         "resourceClass": "m-medium"
       }
     },
-    "prerelease": {
+    "preview": {
       "distribution": "internal",
       "ios": {
         "resourceClass": "m-medium"

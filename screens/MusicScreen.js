@@ -1,8 +1,5 @@
 import { View, Text, TouchableOpacity } from 'react-native'
-import React, {useLayoutEffect} from 'react'
-import { useNavigation } from '@react-navigation/native'
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { ArrowLeftIcon } from 'react-native-heroicons/solid'
+import React from 'react'
 import BackArrow from '../components/BackArrow';
 
 export default function Music() {
