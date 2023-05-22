@@ -15,13 +15,15 @@ import axios from 'axios';
 
 const Starting = () => { 
 
-    const [booleanValue, setBooleanValue] = useState('Mężczyzna')
-    const navigation = useNavigation()
-    const dispatch = useDispatch()
+    const [genderValue, setGenderValue] = useState('Mężczyzna')
     const [email, setEmail] = useState()
     const [values, setValues] = useState()
     const [netStatus, setNetStatus] = useState()
+
     const isFirstRender = useRef(true);
+
+    const navigation = useNavigation()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if (isFirstRender.current) {
@@ -29,16 +31,22 @@ const Starting = () => {
             return;
         }
         else {
-            if (netStatus){
+            if (netStatus === true){
                 sendValues()
             }
-            else if (netStatus === false) {
+            else {
                 createConnectionAlert()
                 setNetStatus()
             }
         }
         
     },[netStatus])
+
+    const getConnectionStatus = () => {
+        NetInfo.fetch().then(state => {
+            setNetStatus(state.isInternetReachable);
+        });
+    }
 
     const sendValues = () => {
         const today = moment()
@@ -76,12 +84,6 @@ const Starting = () => {
         })
         navigation.navigate('Home'); 
         dispatch(startSurveyDone())
-    }
-
-    const getConnectionStatus = async () => {
-        await NetInfo.fetch().then(state => {
-          setNetStatus(state.isConnected);
-        });
     }
     
     const createConnectionAlert = () =>
@@ -149,32 +151,32 @@ const Starting = () => {
                             <View className="flex-row">
                                 <RadioButton
                                 value='Mężczyzna'
-                                status={ booleanValue === 'Mężczyzna' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setBooleanValue('Mężczyzna')); values[14].answer = 'Mężczyzna'}}
+                                status={ genderValue === 'Mężczyzna' ? 'checked' : 'unchecked' }
+                                onPress={() => {(setGenderValue('Mężczyzna')); values[14].answer = 'Mężczyzna'}}
                                 />
                                 <Text className="text-lg m-1">Mężczyzna</Text>
                             </View>
                             <View className="flex-row">
                                 <RadioButton
                                 value='Kobieta'
-                                status={ booleanValue === 'Kobieta' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setBooleanValue('Kobieta')); values[14].answer = 'Kobieta'}}
+                                status={ genderValue === 'Kobieta' ? 'checked' : 'unchecked' }
+                                onPress={() => {(setGenderValue('Kobieta')); values[14].answer = 'Kobieta'}}
                                 />
                                 <Text className="text-lg m-1">Kobieta</Text>
                             </View>
                             <View className="flex-row">
                                 <RadioButton
                                 value='Inne'
-                                status={ booleanValue === 'Inne' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setBooleanValue('Inne')); values[14].answer = 'Inne'}}
+                                status={ genderValue === 'Inne' ? 'checked' : 'unchecked' }
+                                onPress={() => {(setGenderValue('Inne')); values[14].answer = 'Inne'}}
                                 />
                                 <Text className="text-lg m-1">Inne</Text>
                             </View>
                             <View className="flex-row">
                                 <RadioButton
                                 value='Wolę nie podawać'
-                                status={ booleanValue === 'Wolę nie podawać' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setBooleanValue('Wolę nie podawać')); values[14].answer = 'Wolę nie podawać'}}
+                                status={ genderValue === 'Wolę nie podawać' ? 'checked' : 'unchecked' }
+                                onPress={() => {(setGenderValue('Wolę nie podawać')); values[14].answer = 'Wolę nie podawać'}}
                                 />
                                 <Text className="text-lg m-1">Wolę nie podawać</Text>
                             </View>

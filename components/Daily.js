@@ -37,12 +37,18 @@ export default function Daily() {
           if (netStatus){
               sendValues()
           }
-          else if (netStatus === false) {
+          else {
               createConnectionAlert()
               setNetStatus()
           }
       }
   },[netStatus])
+
+  const getConnectionStatus = () => {
+    NetInfo.fetch().then(state => {
+        setNetStatus(state.isInternetReachable);
+    });
+  }
 
   const sendValues = () => {
       const today = moment()
@@ -76,12 +82,6 @@ export default function Daily() {
     navigation.navigate('Home'); 
     dispatch(setDailyDate())
     }
-
-  const getConnectionStatus = async () => {
-      await NetInfo.fetch().then(state => {
-        setNetStatus(state.isConnected);
-      });
-  }
   
   const createConnectionAlert = () =>
   Alert.alert('No Network Connection!', 'Please connect to the Internet before sending survey.', [
