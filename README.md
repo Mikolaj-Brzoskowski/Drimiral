@@ -2,6 +2,6 @@
 
 ## Screenshots
 
-![](assets/screenshots/mainpage.jpg =250x550)
-![](assets/screenshots/notes.jpg =250x550)
-![](assets/screenshots/survey.jpg =250x550)
+<img src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/mainpage.jpg" width=50% height=50%>
+<img src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/notes.jpg" width=50% height=50%>
+<img src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/survey.jpg" width=50% height=50%>
