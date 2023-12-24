@@ -24,7 +24,7 @@
     "nativewind": "^2.0.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.71.8",
+    "react-native": "0.71.14",
     "react-native-color-palette": "^2.2.0",
     "react-native-debugger": "^1.1.0",
     "react-native-dotenv": "^3.4.8",
@@ -45,5 +45,7 @@
     "@babel/core": "^7.20.0",
     "tailwindcss": "^3.2.7"
   },
-  "private": true
+  "private": true,
+  "repository": "https://github.com/Mikolaj-Brzoskowski/Drimiral_native.git",
+  "license": "MIT"
 }
