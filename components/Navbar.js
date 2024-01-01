@@ -32,8 +32,6 @@ export default function NavBar() {
           />
         </TouchableWithoutFeedback>
         <Text id="Current_screen" className="text-white text-xl">{screenName}</Text>
-        {/* <Text id="Music" className="text-white text-xl" onPress={() => navigation.navigate('Music')}>Music</Text>
-        <Text id="Stats" className="text-white text-xl" onPress={() => navigation.navigate('Stats')}>Stats</Text> */}
         <View className="relative">
             <TouchableOpacity 
             className={`rounded-full p-2 self-center bg-violet`}
