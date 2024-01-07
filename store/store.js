@@ -13,6 +13,7 @@ import {
   REGISTER,
 } from 'redux-persist'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import goalsSlice from '../features/goalsSlice'
 
 const persistConfig = {
   key: 'root',
@@ -22,7 +23,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({ 
   user: userReducer,
-  journal: journalReducer
+  journal: journalReducer,
+  goals: goalsSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

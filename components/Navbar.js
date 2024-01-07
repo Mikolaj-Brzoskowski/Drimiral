@@ -17,6 +17,10 @@ export default function NavBar() {
       setisMenuActive(!isMenuActive)
     }
 
+    const closeMenu = () => {
+      setisMenuActive(false)
+    }
+
     return(
       <SafeAreaView className="bg-white">
         <StatusBar
@@ -38,7 +42,7 @@ export default function NavBar() {
             onPress={displayMenu}>
               <Bars3Icon size={30} color='white'/>
             </TouchableOpacity>
-            {isMenuActive ? <Menu/> : null}
+            {isMenuActive ? <Menu closeMenu={closeMenu}/> : null}
         </View>
         </View>
       </SafeAreaView>

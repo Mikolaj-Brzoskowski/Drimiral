@@ -2,7 +2,7 @@
   "expo": {
     "name": "Drimiral",
     "slug": "Drimiral",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -22,8 +22,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.pikussmietnikus.Drimiral",
-      "usesCleartextTraffic": true
+      "package": "com.pikussmietnikus.Drimiral"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -35,6 +34,7 @@
       "eas": {
         "projectId": "7c5dedcb-7e10-4f51-89dd-72f2bf1c24f3"
       }
-    }
+    },
+    "owner": "pikussmietnikus"
   }
 }
