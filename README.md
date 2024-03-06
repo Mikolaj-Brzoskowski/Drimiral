@@ -5,11 +5,11 @@ The **Drimiral** is a mobile application built using the React Native framework.
 ## Features
 
 1. **Note Creation**: Easily create new dream notes with a title, description, and any relevant details.
-2. **Categorization(WIP)**: Organize your dream notes into custom categories or tags. Group similar dreams together for better management and quick retrieval.
+2. **Categorization (WIP)**: Organize your dream notes into custom categories or tags. Group similar dreams together for better management and quick retrieval.
 3. **Guides and Tips**: Access helpful articles and tips on improving sleep quality, enhancing dream recall, and understanding dream symbolism.
-4. **Customizable Targets(WIP)**: Set personal goals related to dream exploration, lucid dreaming, or dream journaling. Track your progress within the app.
-5. **Dark Mode(WIP)**: Switch to dark mode for comfortable nighttime note-taking and reduced eye strain.
-6. **Export Options(WIP)**:
+4. **Customizable Targets (WIP)**: Set personal goals related to dream exploration, lucid dreaming, or dream journaling. Track your progress within the app.
+5. **Dark Mode (WIP)**: Switch to dark mode for comfortable nighttime note-taking and reduced eye strain.
+6. **Export Options (WIP)**:
    - Export notes as HTML, Markdown (MD), PDF, or plain text (TXT) files.
    - Share your dream insights with others or keep them for personal reference.
 7. **Optional Sleep Routine Survey**: Participate in an optional survey to share details about your daily sleep habits. This data can enhance your dream analysis.
@@ -17,7 +17,7 @@ The **Drimiral** is a mobile application built using the React Native framework.
 ## Getting Started
 
 1. **Prerequisites**:
-    - Make sure you have Node.js and Yarn Package Manager installed (`npm install --global yarn`).
+    - Make sure you have Node.js and Yarn Package Manager installed: `npm install --global yarn`.
     - Install Expo CLI globally using the following command: `npm install -g expo-cli`
 
 2. **Clone the Repository**:
