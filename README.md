@@ -32,10 +32,9 @@ The **Drimiral** is a mobile application built using the React Native framework.
     - Run `yarn expo start` in your terminal to launch the app.
 
 ## Screenshots
-
-<img src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/mainpage.jpg" width=30% height=30%>
-<img src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/notes.jpg" width=30% height=30%>
-<img src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/survey.jpg" width=30% height=30%>
+<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/mainpage.jpg" width=25% height=25%>
+<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/notes.jpg" width=25% height=25%>
+<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/survey.jpg" width=25% height=25%>
 
 ## Contributors
 
