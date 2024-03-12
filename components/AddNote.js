@@ -8,14 +8,14 @@ export default function AddNote({onAddBtnClick}) {
     <View>
         <View className="p-3 pb-0">
             <TouchableOpacity 
-            className="bg-black rounded-full p-2 self-center"
+            className="bg-white rounded-full p-2 self-center"
             onPress={onAddBtnClick}
             >
-            <PlusIcon size={30} color='white'/>
+            <PlusIcon size={30} color='black'/>
             </TouchableOpacity>
         </View>
-        <View className="ml-2 mr-2">
-            <Text>Add Note</Text>
+        <View className="ml-2 mr-2 ">
+            <Text className="text-white">Add Note</Text>
         </View>
     </View>
   )

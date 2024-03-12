@@ -8,13 +8,13 @@ export default function CollorButton({onColorBtnClick, isColorButtonActive}) {
     <View>
         <View className="p-3 pb-0">
             <TouchableOpacity 
-            className={`rounded-full p-2 self-center ${isColorButtonActive ? 'bg-violet' : 'bg-black'}`}
+            className={`rounded-full p-2 self-center ${isColorButtonActive ? 'bg-violet' : 'bg-white'}`}
             onPress={onColorBtnClick}>
-                <EyeDropperIcon size={30} color='white'/>
+                <EyeDropperIcon size={30}  color={`${isColorButtonActive ? 'white' : 'black'}`}/>
             </TouchableOpacity>
         </View>
         <View className="ml-2 mr-2">
-            <Text>Notes Color</Text>
+            <Text className="text-white">Notes Color</Text>
         </View>
     </View>
   )

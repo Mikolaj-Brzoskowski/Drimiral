@@ -6,7 +6,9 @@ module.exports = {
   "./components/**/*.{js,jsx,ts,tsx}",
   "./screens/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      textColor: colors.white
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',

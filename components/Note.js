@@ -19,29 +19,33 @@ export default function Note({id, title, note, date, selectedColor, isDeleteButt
       <TouchableOpacity className="bg-violet rounded-full p-2" onPress={(e) => onDelConfirmButtonClick(id)}>
         <TrashIcon size={30} color='white'/>
       </TouchableOpacity>
-      <Text>Confirm Delete</Text>
+      <Text className="text-white">Confirm Delete</Text>
       </View>)
     }
     else return null
   }
 
   return (
-    <View className="flex-column border-t-2 border-gray-300 p-2 w-full">
+    <View className="flex-column border-b-2 border-gray-300 p-2 w-full">
         <TextInput 
-        placeholder="Title" 
+        placeholderTextColor="#6159E6" 
+        color="white"
+        placeholder="Title..." 
         keyboardType="default" 
         numberOfLines={1} 
-        className="font-bold text-xl" 
+        className="font-bold text-xl text-white" 
         defaultValue={titleValue}
         onChangeText={setTitleValue}
         cursorColor={`${colorValue}`}
         />
-        <TextInput 
+        <TextInput
+        placeholderTextColor="#6159E6"
+        color="white"
         placeholder="Type note here..." 
         keyboardType="default" 
         defaultValue={noteValue}
         multiline
-        className={`text-base flex-row w-full bg-gray-100 border-solid border-2 rounded self-center p-1 m-1`}
+        className={`text-base flex-row w-full border-solid border-2 rounded self-center p-1 m-1 text-white`}
         style={{borderColor: colorValue}}
         onChangeText={setNoteValue}
         cursorColor={`${colorValue}`}

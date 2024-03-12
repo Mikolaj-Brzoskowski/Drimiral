@@ -51,31 +51,32 @@ export default function Journal() {
   }
 
   return (
-    <ScrollView stickyHeaderIndices={[0]} ref={scrollRef}>
-      <View className="p-1 bg-white flex flex-row flex-wrap">
+    <ScrollView stickyHeaderIndices={[2]}> 
+      <View className="p-1 flex flex-row flex-wrap">
         <BackArrow text='Journal'/>
-        <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center">Dream Dairy</Text>
-        <View className="w-full p-1 bg-white flex flex-column justify-end">
-          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-          <View className="flex-row flex-auto justify-evenly">
-            <AddNote onAddBtnClick={onAddBtnClick} />
-            <DeleteNote onDelBtnClick={onDelBtnClick} isDeleteButtonActive={isDeleteButtonActive}/>
-            <CollorButton onColorBtnClick={onColorBtnClick} isColorButtonActive={isColorButtonActive}/>
-          </View>
+        <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center text-white">Dream Dairy</Text>
+      </View>
+      <View className="flex-row flex-auto justify-evenly">
+          <AddNote onAddBtnClick={onAddBtnClick} />
+          <DeleteNote onDelBtnClick={onDelBtnClick} isDeleteButtonActive={isDeleteButtonActive}/>
+          <CollorButton onColorBtnClick={onColorBtnClick} isColorButtonActive={isColorButtonActive}/>
+      </View>
+      <View className="w-full p-1 flex flex-column justify-end bg-black">
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      </View>
+      <ScrollView stickyHeaderIndices={[0]} ref={scrollRef}>
+        <View>
+          {notes.filter(searchFliter).reverse().map((note) => (
+            <Note id={note.id} key={note.id} 
+            title={`${note.title}`} note={`${note.note}`} date={`${note.date}`} selectedColor={`${note.selectedColor}`}
+            isDeleteButtonActive={isDeleteButtonActive} 
+            onDelConfirmButtonClick={onDelConfirmButtonClick} 
+            saveFunction={saveFunction}
+            isColorButtonActive={isColorButtonActive}
+            />
+          ))}
         </View>
-      </View>
-      <View className="bg-white">
-        {notes.filter(searchFliter).reverse().map((note) => (
-          <Note id={note.id} key={note.id} 
-          title={`${note.title}`} note={`${note.note}`} date={`${note.date}`} selectedColor={`${note.selectedColor}`}
-          isDeleteButtonActive={isDeleteButtonActive} 
-          onDelConfirmButtonClick={onDelConfirmButtonClick} 
-          saveFunction={saveFunction}
-          isColorButtonActive={isColorButtonActive}
-          />
-        ))}
-      </View>
+      </ScrollView>
     </ScrollView>
-      
   )
 }

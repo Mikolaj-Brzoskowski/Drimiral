@@ -11,7 +11,7 @@ import { addGoal, editGoal, getGoals, removeGoal } from '../features/goalsSlice'
 import CollorButton from '../components/ColorButton';
 
 
-export default function Journal() {
+export default function Music() {
 
   const [isDeleteButtonActive, setDeleteButtonActive] = useState(false)
   const [isColorButtonActive, setColorButtonActive] = useState(false)
@@ -52,29 +52,7 @@ export default function Journal() {
 
   return (
     <ScrollView stickyHeaderIndices={[0]} ref={scrollRef}>
-      <View className="p-1 bg-white flex flex-row flex-wrap">
-        <BackArrow text='Journal'/>
-        <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center">Goals</Text>
-        <View className="w-full p-1 bg-white flex flex-column justify-end">
-          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-          <View className="flex-row flex-auto justify-evenly">
-            <AddNote onAddBtnClick={onAddBtnClick} />
-            <DeleteNote onDelBtnClick={onDelBtnClick} isDeleteButtonActive={isDeleteButtonActive}/>
-            <CollorButton onColorBtnClick={onColorBtnClick} isColorButtonActive={isColorButtonActive}/>
-          </View>
-        </View>
-      </View>
-      <View className="bg-white">
-        {notes.filter(searchFliter).reverse().map((note) => (
-          <Note id={note.id} key={note.id} 
-          title={`${note.title}`} note={`${note.note}`} date={`${note.date}`} selectedColor={`${note.selectedColor}`}
-          isDeleteButtonActive={isDeleteButtonActive} 
-          onDelConfirmButtonClick={onDelConfirmButtonClick} 
-          saveFunction={saveFunction}
-          isColorButtonActive={isColorButtonActive}
-          />
-        ))}
-      </View>
+      
     </ScrollView>
       
   )

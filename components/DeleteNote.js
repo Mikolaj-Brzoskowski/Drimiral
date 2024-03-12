@@ -8,13 +8,13 @@ export default function DeleteNote({onDelBtnClick, isDeleteButtonActive}) {
     <View>
         <View className="p-3 pb-0">
             <TouchableOpacity 
-            className={`rounded-full p-2 self-center ${isDeleteButtonActive ? 'bg-violet' : 'bg-black'}`}
+            className={`rounded-full p-2 self-center ${isDeleteButtonActive ? 'bg-violet' : 'bg-white'}`}
             onPress={onDelBtnClick}>
-                <XMarkIcon size={30} color='white'/>
+                <XMarkIcon size={30} color={`${isDeleteButtonActive ? 'white' : 'black'}`}/>
             </TouchableOpacity>
         </View>
         <View className="ml-2 mr-2">
-            <Text>Delete Note</Text>
+            <Text className="text-white">Delete Note</Text>
         </View>
     </View>
   )

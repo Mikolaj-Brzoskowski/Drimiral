@@ -7,7 +7,7 @@ The **Drimiral** is a mobile application built using the React Native framework.
 1. **Note Creation**: Easily create new dream notes with a title, description, and any relevant details.
 2. **Categorization (WIP)**: Organize your dream notes into custom categories or tags. Group similar dreams together for better management and quick retrieval.
 3. **Guides and Tips**: Access helpful articles and tips on improving sleep quality, enhancing dream recall, and understanding dream symbolism.
-4. **Customizable Targets (WIP)**: Set personal goals related to dream exploration, lucid dreaming, or dream journaling. Track your progress within the app.
+4. **Embemed playlists with sleep music (WIP)**
 5. **Dark Mode (WIP)**: Switch to dark mode for comfortable nighttime note-taking and reduced eye strain.
 6. **Export Options (WIP)**:
    - Export notes as HTML, Markdown (MD), PDF, or plain text (TXT) files.
@@ -36,8 +36,8 @@ The **Drimiral** is a mobile application built using the React Native framework.
 
 ## Screenshots
 <div>
-<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/mainpage.jpg" width=25% height=25%>
-<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/notes.jpg" width=25% height=25%>
-<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/survey.jpg" width=25% height=25%>
-<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/guides.jpg" width=25% height=25%>
+<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/mainpage.jpg" width=24% height=24%>
+<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/notes.jpg" width=24% height=24%>
+<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/survey.jpg" width=24% height=24%>
+<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/guides.jpg" width=24% height=24%>
 </div>
