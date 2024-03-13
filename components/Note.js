@@ -50,7 +50,7 @@ export default function Note({id, title, note, date, selectedColor, isDeleteButt
         onChangeText={setNoteValue}
         cursorColor={`${colorValue}`}
         />
-        <Text className="text-xs">Created: {date}</Text>
+        <Text className="text-white text-xs">Created: {date}</Text>
         {isColorButtonActive ? <ColorPicker colorValue={colorValue} setColorValue={setColorValue}/> : null}
         <View>
           {conditionalRender()}

@@ -50,10 +50,6 @@ export default function Home() {
       <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center text-white">Homepage</Text>
       {isDailyAvailable()}
       {/* buttons for development only */}
-      {/* <View className="flex-row justify-between mt-2">
-        <Button title="Reset user State" onPress={(e) => dispatch(resetUserState())}/>
-        <Button title="Reset journal State" onPress={(e) => dispatch(resetJournalState())}/>
-      </View> */}
       <View>
       <WebView
           scalesPageToFit={true}

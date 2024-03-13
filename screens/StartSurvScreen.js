@@ -8,7 +8,7 @@ export default function StartSurv() {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View className="p-1 bg-white flex flex-row flex-wrap">
+        <View className="p-1 flex flex-row flex-wrap">
           <Text className="self-center p-2 w-full text-3xl font-bold text-center">Starting questions</Text>
           <Starting/>
         </View>

@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux'
 import { isStartAvailable } from './features/userSlice'
 import Welcome from './screens/WelcomeScreen';
 import Guides from './screens/GuidesScreen';
-import { DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { DarkTheme } from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,8 +21,8 @@ const Navigation = props => {
     ...DarkTheme,
     colors: {
       ...DarkTheme.colors,
-      primary: '#6159E6',
-      text: '#FFFFFF',
+      primary: `#6159E6`,
+      text: `#FFFFFF`,
     },
   };
 

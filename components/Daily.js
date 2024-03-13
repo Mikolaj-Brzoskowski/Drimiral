@@ -16,9 +16,9 @@ export default function Daily() {
 
   const [booleanValue, setBooleanValue] = useState()
   const [booleanValue2, setBooleanValue2] = useState()
-  const [dreamResponse, setDreamResponse] = useState('Nie')
-  const [rateResponse, setRateResponse] = useState('Nie spałem')
-  const [volResponnse, setVolResponnse] = useState('Cicho')
+  const [dreamResponse, setDreamResponse] = useState('No')
+  const [rateResponse, setRateResponse] = useState(`I haven't slept`)
+  const [volResponnse, setVolResponnse] = useState('Quietly')
   const [email, setEmail] = useState()
 
   const navigation = useNavigation()
@@ -68,10 +68,10 @@ export default function Daily() {
     }
     Object.keys(sendObject).forEach(key => {
       if (sendObject[key] === true){
-        sendObject[key] = "Tak"
+        sendObject[key] = "Yes"
       }
       if (sendObject[key] === false){
-        sendObject[key] = "Nie"
+        sendObject[key] = "No"
       }
     });
     axios.post(DAILY_URL, sendObject).then((response) => {
@@ -100,72 +100,80 @@ export default function Daily() {
         getConnectionStatus()
       }}>
       {({ handleChange, handleBlur, handleSubmit, values }) => (
-          <View className="bg-white flex-columns">
+          <View className="flex-columns">
             <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">Email</Text>
+              <Text className="text-white font-bold text-2xl text-center mt-2">Email</Text>
               <TextInput onChangeText={(e) => setEmail(e)} 
               value={email}
               className="border rounded p-2 m-2 text-lg"
               inputMode='email'
               style={{borderColor: '#6159E6'}} 
-              cursorColor='#6159E6'/>
+              cursorColor='#6159E6'
+              placeholderTextColor="#6159E6" 
+              color="white"
+              placeholder="Type here..." 
+              keyboardType="default" />
             </View>
             <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">{`${values[0].question}`}</Text>
+              <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[0].question}`}</Text>
               <View className="flex-row justify-evenly p-3 flex-wrap">
                 <View className="flex-row">
                   <RadioButton
-                  value='Nie spałem'
-                  status={ rateResponse === 'Nie spałem' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setRateResponse('Nie spałem')); values[0].answer = 'Nie spałem'}}
+                  value={`I haven't slept`}
+                  status={ rateResponse === `I haven't slept` ? 'checked' : 'unchecked' }
+                  onPress={() => {(setRateResponse(`I haven't slept`)); values[0].answer = `I haven't slept`}}
                   />
-                  <Text className="text-lg m-1">Nie spałem</Text>
+                  <Text className="text-white text-lg m-1">I haven't slept</Text>
                 </View>
                 <View className="flex-row">
                   <RadioButton
-                  value='Źle'
-                  status={ rateResponse === 'Źle' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setRateResponse('Źle')); values[0].answer = 'Źle'}}
+                  value='Bad'
+                  status={ rateResponse === 'Bad' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setRateResponse('Bad')); values[0].answer = 'Bad'}}
                   />
-                  <Text className="text-lg m-1">Źle</Text>
+                  <Text className="text-white text-lg m-1">Bad</Text>
                 </View>
                 <View className="flex-row">
                   <RadioButton
-                  value='Średnio'
-                  status={ rateResponse === 'Średnio' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setRateResponse('Średnio')); values[0].answer = 'Średnio'}}
+                  value='Moderately'
+                  status={ rateResponse === 'Moderately' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setRateResponse('Moderately')); values[0].answer = 'Moderately'}}
                   />
-                  <Text className="text-lg m-1">Średnio</Text>
+                  <Text className="text-white text-lg m-1">Moderately</Text>
                 </View>
                 <View className="flex-row">
                   <RadioButton
-                  value='Dobrze'
-                  status={ rateResponse === 'Dobrze' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setRateResponse('Dobrze')); values[0].answer = 'Dobrze'}}
+                  value='Good'
+                  status={ rateResponse === 'Good' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setRateResponse('Good')); values[0].answer = 'Good'}}
                   />
-                  <Text className="text-lg m-1">Dobrze</Text>
+                  <Text className="text-white text-lg m-1">Good</Text>
                 </View>
                 <View className="flex-row">
                   <RadioButton
-                  value='Wspaniale'
-                  status={ rateResponse === 'Wspaniale' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setRateResponse('Wspaniale')); values[0].answer = 'Wspaniale'}}
+                  value='Amazingly'
+                  status={ rateResponse === 'Amazingly' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setRateResponse('Amazingly')); values[0].answer = 'Amazingly'}}
                   />
-                  <Text className="text-lg m-1">Wspaniale</Text>
+                  <Text className="text-white text-lg m-1">Amazingly</Text>
                 </View>
               </View>
             </View>
             <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">{`${values[1].question}`}</Text>
+              <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[1].question}`}</Text>
               <TextInput onChangeText={handleChange(`${1}.answer`)} 
               onBlur={handleBlur(`${1}.answer`)} value={values[1].answer} 
               className="border rounded p-2 m-2 text-lg"
               inputMode='numeric' 
               style={{borderColor: '#6159E6'}} 
-              cursorColor='#6159E6'/>
+              cursorColor='#6159E6'
+              placeholderTextColor="#6159E6"
+              color="white"
+              placeholder="Type here..." 
+              keyboardType="default"/>
             </View>
             <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">{`${values[2].question}`}</Text>
+              <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[2].question}`}</Text>
               <View className="flex-row justify-evenly p-3">
                 <View className="flex-row">
                   <RadioButton
@@ -173,7 +181,7 @@ export default function Daily() {
                   status={ !booleanValue ? 'checked' : 'unchecked' }
                   onPress={() => {(setBooleanValue(false)); values[2].answer = false}}
                   />
-                  <Text className="text-lg m-1">Nie</Text>
+                  <Text className="text-white text-lg m-1">No</Text>
                 </View>
                 <View className="flex-row">
                   <RadioButton
@@ -181,24 +189,27 @@ export default function Daily() {
                     status={ booleanValue ? 'checked' : 'unchecked' }
                     onPress={() => {(setBooleanValue(true)); values[2].answer = true}}
                     />
-                  <Text className="text-lg m-1">Tak</Text>
+                  <Text className="text-white text-lg m-1">Yes</Text>
                 </View>
               </View>
             </View >
             {(values[2].answer !== false) && (
               <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">{`${values[3].question}`}</Text>
-              <TextInput 
-              onChangeText={handleChange(`${3}.answer`)} 
-              onBlur={handleBlur(`${3}.answer`)} 
-              value={values[3].answer} className="border rounded p-2 m-2 text-lg"
-              inputMode='numeric' 
+              <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[3].question}`}</Text>
+              <TextInput onChangeText={handleChange(`${3}.answer`)} onBlur={handleBlur(`${3}.answer`)}
+              value={values[3].answer}
+              className="border rounded p-2 m-2 text-lg"
+              inputMode='numeric'
               style={{borderColor: '#6159E6'}} 
-              cursorColor='#6159E6'/>
+              cursorColor='#6159E6'
+              placeholderTextColor="#6159E6" 
+              color="white"
+              placeholder="Type here..." 
+              keyboardType="default" />
             </View>
             )}
             <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">{`${values[4].question}`}</Text>
+              <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[4].question}`}</Text>
               <View className="flex-row justify-evenly p-3">
                 <View className="flex-row">
                   <RadioButton
@@ -206,7 +217,7 @@ export default function Daily() {
                   status={ !booleanValue2 ? 'checked' : 'unchecked' }
                   onPress={() => {(setBooleanValue2(false)); values[4].answer = false}}
                   />
-                  <Text className="text-lg m-1">Nie</Text>
+                  <Text className="text-white text-lg m-1">No</Text>
                 </View>
                 <View className="flex-row">
                   <RadioButton
@@ -214,14 +225,14 @@ export default function Daily() {
                     status={ booleanValue2 ? 'checked' : 'unchecked' }
                     onPress={() => {(setBooleanValue2(true)); values[4].answer = true}}
                     />
-                  <Text className="text-lg m-1">Tak</Text>
+                  <Text className="text-white text-lg m-1">Yes</Text>
                 </View>
               </View>
             </View>
             {(values[4].answer !== false) && (
             <View>
               <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">{`${values[5].question}`}</Text>
+              <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[5].question}`}</Text>
               <TextInput
                 onChangeText={handleChange(`${5}.answer`)}
                 onBlur={handleBlur(`${5}.answer`)}
@@ -230,81 +241,84 @@ export default function Daily() {
                 multiline
                 style={{borderColor: '#6159E6'}}
                 cursorColor='#6159E6'
-                />
+                placeholderTextColor="#6159E6"
+                color="white"
+                placeholder="Type here..." 
+                keyboardType="default"/>
               </View>
               <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">{`${values[6].question}`}</Text>
+              <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[6].question}`}</Text>
               <View className="flex-row justify-evenly p-3">
                 <View className="flex-row">
                   <RadioButton
-                  value='Cicho'
-                  status={ volResponnse === 'Cicho' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setVolResponnse('Cicho')); values[6].answer = 'Cicho'}}
+                  value='Quietly'
+                  status={ volResponnse === 'Quietly' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setVolResponnse('Quietly')); values[6].answer = 'Quietly'}}
                   />
-                  <Text className="text-lg m-1">Cicho</Text>
+                  <Text className="text-white text-lg m-1">Quietly</Text>
                 </View>
                 <View className="flex-row">
                   <RadioButton
-                  value='Normalnie'
-                  status={ volResponnse === 'Normalnie' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setVolResponnse('Normalnie')); values[6].answer = 'Normalnie'}}
+                  value='Normal'
+                  status={ volResponnse === 'Normal' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setVolResponnse('Normal')); values[6].answer = 'Normal'}}
                   />
-                  <Text className="text-lg m-1">Normalnie</Text>
+                  <Text className="text-white text-lg m-1">Normal</Text>
                 </View>
                 <View className="flex-row">
                   <RadioButton
-                  value='Głośno'
-                  status={ volResponnse === 'Głośno' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setVolResponnse('Głośno')); values[6].answer = 'Głośno'}}
+                  value='Loudly'
+                  status={ volResponnse === 'Loudly' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setVolResponnse('Loudly')); values[6].answer = 'Loudly'}}
                   />
-                  <Text className="text-lg m-1">Głośno</Text>
+                  <Text className="text-white text-lg m-1">Loudly</Text>
                 </View>
               </View>
             </View>
             </View>
             )}
             <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">{`${values[7].question}`}</Text>
-              <View className="flex-row justify-evenly p-3">
+              <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[7].question}`}</Text>
+              <View className="flex-row justify-evenly p-3 flex-wrap">
                 <View className="flex-row">
                   <RadioButton
-                  value='Nie'
-                  status={ dreamResponse === 'Nie' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setDreamResponse('Nie')); values[7].answer = 'Nie'}}
+                  value='No'
+                  status={ dreamResponse === 'No' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setDreamResponse('No')); values[7].answer = 'No'}}
                   />
-                  <Text className="text-lg m-1">Nie</Text>
+                  <Text className="text-white text-lg m-1">No</Text>
                 </View>
                 <View className="flex-row">
                   <RadioButton
-                  value='Sny'
-                  status={ dreamResponse === 'Sny' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setDreamResponse('Sny')); values[7].answer = 'Sny'}}
+                  value='Dreams'
+                  status={ dreamResponse === 'Dreams' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setDreamResponse('Dreams')); values[7].answer = 'Dreams'}}
                   />
-                  <Text className="text-lg m-1">Sny</Text>
+                  <Text className="text-white text-lg m-1">Dreams</Text>
                 </View>
                 <View className="flex-row">
                   <RadioButton
-                  value='Koszmary'
-                  status={ dreamResponse === 'Koszmary' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setDreamResponse('Koszmary')); values[7].answer = 'Koszmary'}}
+                  value='Nightmares'
+                  status={ dreamResponse === 'Nightmares' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setDreamResponse('Nightmares')); values[7].answer = 'Nightmares'}}
                   />
-                  <Text className="text-lg m-1">Koszmary</Text>
+                  <Text className="text-white text-lg m-1">Nightmares</Text>
                 </View>
                 <View className="flex-row">
                   <RadioButton
-                  value='Oba'
-                  status={ dreamResponse === 'Oba' ? 'checked' : 'unchecked' }
-                  onPress={() => {(setDreamResponse('Oba')); values[7].answer = 'Oba'}}
+                  value='Both'
+                  status={ dreamResponse === 'Both' ? 'checked' : 'unchecked' }
+                  onPress={() => {(setDreamResponse('Both')); values[7].answer = 'Both'}}
                   />
-                  <Text className="text-lg m-1">Oba</Text>
+                  <Text className="text-white text-lg m-1">Both</Text>
                 </View>
               </View>
             </View>
-            {(values[7].answer !== 'Nie') && (
+            {(values[7].answer !== 'No') && (
             <RadioButtons values={values} idx={8}/>
             )}
             <View className="border-t-2 border-gray-300 w-full mt-2">
-              <Text className="font-bold text-2xl text-center mt-2">{`${values[9].question}`}</Text>
+              <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[9].question}`}</Text>
               <TextInput
                 onChangeText={handleChange(`${9}.answer`)}
                 onBlur={handleBlur(`${9}.answer`)}
@@ -313,11 +327,14 @@ export default function Daily() {
                 multiline
                 style={{borderColor: '#6159E6'}}
                 cursorColor='#6159E6'
-                />
+                placeholderTextColor="#6159E6"
+                color="white"
+                placeholder="Type here..." 
+                keyboardType="default"/>
             </View>
             <View className="m-5 flex-row justify-center">
               <TouchableOpacity className="p-3 align-middle justify-center rounded-full bg-violet" onPress={handleSubmit}>
-                <Text className="text-xl flex-row p-2 text-white">Submit survey</Text>
+                <Text className="text-white text-xl flex-row p-2 text-white">Submit survey</Text>
               </TouchableOpacity>
             </View>
         </View>

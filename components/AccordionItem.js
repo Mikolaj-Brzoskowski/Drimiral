@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Button,
   Platform,
   UIManager,
   LayoutAnimation
@@ -30,7 +26,7 @@ export default function AccordionItem({ children, title }) {
     return (
       <View className="p-2">
         <TouchableOpacity className="p-2 flex-column justify-between" onPress={ toggleItem }>
-          <Text className="font-bold text-2xl text-center">{ title }</Text>
+          <Text className="text-white font-bold text-2xl text-center">{ title }</Text>
           <View className="self-center">
           { expanded ?
             <ChevronUpIcon size={40} color="#6159E6" /> :

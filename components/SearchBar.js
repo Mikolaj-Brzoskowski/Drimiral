@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, TextInput } from 'react-native'
+import { View, TextInput } from 'react-native'
 import React from 'react'
 import { MagnifyingGlassIcon, XMarkIcon } from 'react-native-heroicons/solid'
  

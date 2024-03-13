@@ -8,9 +8,9 @@ import { ScrollView } from 'react-native'
 export default function Survey() {
   return (
     <ScrollView>
-      <View className="p-1 bg-white flex flex-row flex-wrap">
+      <View className="p-1 flex flex-row flex-wrap">
         <BackArrow text='Journal'/>
-        <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center">Daily Survey</Text>
+        <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center text-white">Daily Survey</Text>
         <Daily/>
       </View>
     </ScrollView>

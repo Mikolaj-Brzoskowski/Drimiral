@@ -1,6 +1,6 @@
 import { View } from 'react-native'
 import React from 'react'
-import { EyeDropperIcon } from 'react-native-heroicons/solid';
+import { CheckIcon } from 'react-native-heroicons/solid';
 import ColorPalette from 'react-native-color-palette'
 
 export default function ColorPicker({colorValue, setColorValue}) {
@@ -17,7 +17,7 @@ export default function ColorPicker({colorValue, setColorValue}) {
           color:`white`
         }}
         icon={
-          <View/>}
+          <CheckIcon size={25}  color={`#6159E6`}/>}
         />
     </View>
   )

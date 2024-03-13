@@ -12,22 +12,31 @@ export default function Guides() {
         <Text className="self-center p-2 w-10/12 text-lg">Here you can read guides to better dreams.</Text>
       </View>
       <View className="flex-column border-t-2 border-violet p-2 w-full items-center">
-        <AccordionItem className="b" title="Kolekcjonowanie snów, ich spis oraz wyszczególnienie Znaków Sennych">
-          <Text className="text-lg">{`1. Zapisuj sny w jakiejś formie dziennika - najważniejsze jest, by po każdym śnie zapisywać cokolwiek. Nawet jeżeli będą to pojedyncze słowa, mogą się one okazać kluczowe do wyszczególnienia powtarzających się schematów snów, dzięki którym będziemy w stanie w trakcie snu być ich świadom i lepiej się do nich przygotować.
+        <AccordionItem className="b" title="Collecting dreams, listing them and detailing the Dream Signs">
+          <Text className="text-white text-lg">{`1. Write down dreams in some form of diary - the most important thing is to write down anything after each dream. Even if they are single words, they can prove crucial to detailing recurring dream patterns so that you can be aware of them while you are dreaming and better prepare for them.
 
-2. Podkreślaj i zapisuj osobno słowa, tematyki, osoby czy inne przedmioty powtarzające się na przestrzeni swojej historii snów. Spróbuj pogrupować je dla ułatwienia we własne kategorie.
+2. Highlight and write down separately words, themes, people or other objects that recur throughout your dream history. Try to group them into their own categories for ease.
 
-3. Po dłuższym czasie, kiedy jesteś w stanie wyszczególnić najczęściej powtarzające się Znaki Senne, pora na ostatni etap. Jeżeli twoje Znaki Senne są nierealistyczne, skup swoje myśli przed snem tylko i wyłącznie na nich. Używając wyobraźni, wytwórz świat skupiający się głównie na danym Znaku Sennym.  Jeżeli jesteś w stanie powiązać je z realnymi wydarzeniami czy postaciami, za każdym razem gdy to się stanie, analizuj dokładnie każdy szczegół danej sytuacji. W ten sposób w trakcie snu, łatwo będzie dostrzec jakieś nietypowe dla danego Znaku Sennego zachowania i uświadomić sobie o śnie.`}
+3. After you've been able to detail the most frequently recurring Dream Signs for a while, it's time for the final step. If your Dream Signs are unrealistic, focus your thoughts before sleep solely on them. Using your imagination, create a world focusing mainly on a particular Dream Sign.  If you are able to associate them with real events or characters, each time this happens, analyze every detail of the situation carefully. In this way, while you are dreaming, it will be easy to spot any behavior that is unusual for a given Dream Sign and become aware of the dream.`}
           </Text>
         </AccordionItem>
-        <AccordionItem title="Osiąganie zamierzonych przez siebie celów">
-          <Text className="text-lg">{`Jeżeli zapoznałeś już się trochę z tym w jaki sposób śnisz, co na ten sen wpływa oraz zapamiętujesz chociaż fragmenty snów, możesz określić swoje zamierzone cele, które chcesz osiągnąć. Przy ich ustalaniu pamiętaj jednak o trzech ważnych regułach:
+        <AccordionItem title="Achieve the goals you set for yourself">
+          <Text className="text-white text-lg">{`If you have already become somewhat familiar with how you dream, what influences that dream, and remember at least fragments of dreams, you can set your intended goals that you want to achieve. However, when setting them, remember three important rules:
 
-1. Określ cele ogólne lub szczegółowe za pomocą numerów i czasu - każda osoba jest inna i każda jest w stanie osiągnąć inne rzeczy. Dlatego dostosuj swoje cele do swoich potrzeb, zwiększając za każdym razem, gdy jakiś cel osiągniesz jego zakres. Staraj się przy tym w miarę możliwości nie zwiększać zakresu czasowego.
+1. Set realistic goals for achievable - every person is different and everyone is capable of achieving different things. Therefore, tailor your goals to your needs, increasing each time a goal is achieved. While doing so, try not to increase the time range as much as possible.
 
-2. Określ cele, które sprawią ci wyzwanie, ale których jesteś dokonać - ustawiając za łatwe cele, ciężko będzie ci osiągnąć rozwój. Ustawiając za trudne, szybko się zniechęcisz i zdemotywujesz. Pamiętaj jednak, że porażka jest częścią procesu nauki.
+2. Set goals that will challenge you, but which you are accomplished - by setting too easy goals, you will find it hard to achieve development. By setting too difficult, you will quickly become discouraged and demotivated. Remember, however, that failure is part of the learning process.
 
-3. Określ cele zarówno krótkodystansowe, jak i takie, które zajmą ci więcej czasu - ustaw cele takie, które jesteś w stanie wykonać w krótkim przedziale czasu, i takie, które zajmą tego czasu dużo więcej. Jeżeli jes
+3. Set goals such as those you are able to complete in a short period of time, and those that will take a lot more of that time. Use numbers when defining such goals.
+
+For example, correct goals are:
+- today I will sleep 8h
+- during the week I will get up rested 3 times
+- during the month I will remember 10 dreams
+
+Incorrect goals are goals such as:
+- I need to sleep better (not specific enough)
+- I will remember all my sleep today (unrealistic goal)
 `}
           </Text>
         </AccordionItem> 

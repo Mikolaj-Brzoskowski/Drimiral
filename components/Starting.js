@@ -15,7 +15,7 @@ import axios from 'axios';
 
 const Starting = () => { 
 
-    const [genderValue, setGenderValue] = useState('Mężczyzna')
+    const [genderValue, setGenderValue] = useState('Man')
     const [email, setEmail] = useState()
     const [values, setValues] = useState()
     const [netStatus, setNetStatus] = useState()
@@ -71,10 +71,10 @@ const Starting = () => {
         }
         Object.keys(sendObject).forEach(key => {
         if (sendObject[key] === true){
-            sendObject[key] = "Tak"
+            sendObject[key] = "Yes"
         }
         if (sendObject[key] === false){
-            sendObject[key] = "Nie"
+            sendObject[key] = "No"
         }
         });
         axios.post(START_URL, sendObject).then((response) => {
@@ -103,21 +103,25 @@ const Starting = () => {
             getConnectionStatus()
         }}>
         {({ handleChange, handleBlur, handleSubmit, values }) => (
-            <View className="bg-white flex-columns">
+            <View className="flex-columns">
                 <View className="border-t-2 border-gray-300 w-full mt-2">
-                    <Text className="font-bold text-2xl text-center mt-2">Email</Text>
+                    <Text className="text-white font-bold text-2xl text-center mt-2">Email</Text>
                     <TextInput onChangeText={(e) => setEmail(e)} 
                     value={email}
                     className="border rounded p-2 m-2 text-lg"
                     inputMode='email'
                     style={{borderColor: '#6159E6'}} 
-                    cursorColor='#6159E6'/>
+                    cursorColor='#6159E6'
+                    placeholderTextColor="#6159E6"
+                    color="white"
+                    placeholder="Type here..." 
+                    keyboardType="default"/>
                 </View>
                 <RadioButtons values={values} idx={0}/>
                 <RadioButtons values={values} idx={1}/>
                 <RadioButtons values={values} idx={2}/>
                 <View className="border-t-2 border-gray-300 w-full mt-2">
-                <Text className="font-bold text-2xl text-center mt-2">{`${values[3].question}`}</Text>
+                <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[3].question}`}</Text>
                 <TextInput
                 name={`${3}.answer`}
                 onChangeText={handleChange(`${3}.answer`)} 
@@ -126,7 +130,11 @@ const Starting = () => {
                 className="border rounded p-2 m-2 text-lg"
                 inputMode='numeric' 
                 style={{borderColor: '#6159E6'}} 
-                cursorColor='#6159E6'/>
+                cursorColor='#6159E6'
+                placeholderTextColor="#6159E6"
+                color="white"
+                placeholder="Type here..." 
+                keyboardType="default"/>
                 </View>
                 <RadioButtons values={values} idx={4}/>
                 <RateRadioButtons values={values} idx={5}/>
@@ -138,54 +146,58 @@ const Starting = () => {
                 <RadioButtons values={values} idx={11}/>
                 <RadioButtons values={values} idx={12}/>
                 <View className="border-t-2 border-gray-300 w-full mt-2">
-                    <Text className="font-bold text-2xl text-center mt-2">{`${values[13].question}`}</Text>
+                    <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[13].question}`}</Text>
                     <TextInput onChangeText={handleChange(`${13}.answer`)} 
                     onBlur={handleBlur(`${13}.answer`)} value={values[13].answer} 
                     className="border rounded p-2 m-2 text-lg"
                     inputMode='numeric' 
                     style={{borderColor: '#6159E6'}} 
-                    cursorColor='#6159E6'/>
+                    cursorColor='#6159E6'
+                    placeholderTextColor="#6159E6"
+                    color="white"
+                    placeholder="Type here..." 
+                    keyboardType="default"/>
                     <View className="border-t-2 border-gray-300 w-full mt-2">
-                        <Text className="font-bold text-2xl text-center mt-2">{`${values[14].question}`}</Text>
+                        <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[14].question}`}</Text>
                         <View className="flex-row justify-evenly p-3 flex-wrap">
                             <View className="flex-row">
                                 <RadioButton
-                                value='Mężczyzna'
-                                status={ genderValue === 'Mężczyzna' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setGenderValue('Mężczyzna')); values[14].answer = 'Mężczyzna'}}
+                                value='Man'
+                                status={ genderValue === 'Man' ? 'checked' : 'unchecked' }
+                                onPress={() => {(setGenderValue('Man')); values[14].answer = 'Man'}}
                                 />
-                                <Text className="text-lg m-1">Mężczyzna</Text>
+                                <Text className="text-white text-lg m-1">Man</Text>
                             </View>
                             <View className="flex-row">
                                 <RadioButton
-                                value='Kobieta'
-                                status={ genderValue === 'Kobieta' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setGenderValue('Kobieta')); values[14].answer = 'Kobieta'}}
+                                value='Woman'
+                                status={ genderValue === 'Woman' ? 'checked' : 'unchecked' }
+                                onPress={() => {(setGenderValue('Woman')); values[14].answer = 'Woman'}}
                                 />
-                                <Text className="text-lg m-1">Kobieta</Text>
+                                <Text className="text-white text-lg m-1">Woman</Text>
                             </View>
                             <View className="flex-row">
                                 <RadioButton
-                                value='Inne'
-                                status={ genderValue === 'Inne' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setGenderValue('Inne')); values[14].answer = 'Inne'}}
+                                value='Other'
+                                status={ genderValue === 'Other' ? 'checked' : 'unchecked' }
+                                onPress={() => {(setGenderValue('Other')); values[14].answer = 'Other'}}
                                 />
-                                <Text className="text-lg m-1">Inne</Text>
+                                <Text className="text-white text-lg m-1">Other</Text>
                             </View>
                             <View className="flex-row">
                                 <RadioButton
-                                value='Wolę nie podawać'
-                                status={ genderValue === 'Wolę nie podawać' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setGenderValue('Wolę nie podawać')); values[14].answer = 'Wolę nie podawać'}}
+                                value='None'
+                                status={ genderValue === 'None' ? 'checked' : 'unchecked' }
+                                onPress={() => {(setGenderValue('None')); values[14].answer = 'None'}}
                                 />
-                                <Text className="text-lg m-1">Wolę nie podawać</Text>
+                                <Text className="text-white text-lg m-1">None</Text>
                             </View>
                         </View>
                     </View>
                 </View>
                 <View className="m-5 flex-row justify-center">
                 <TouchableOpacity className="p-3 align-middle justify-center rounded-full bg-violet" onPress={handleSubmit}>
-                    <Text className="text-xl flex-row p-2 text-white">Submit survey</Text>
+                    <Text className="text-white text-xl flex-row p-2">Submit survey</Text>
                 </TouchableOpacity>
                 </View>
             </View>

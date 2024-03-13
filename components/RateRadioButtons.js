@@ -4,51 +4,51 @@ import { RadioButton } from 'react-native-paper';
 
 const RateRadioButtons = ({values, idx}) => {
 
-    const [booleanValue, setBooleanValue] = useState('Nigdy')
+    const [booleanValue, setBooleanValue] = useState('Never')
 
     return (
         <View className="border-t-2 border-gray-300 w-full mt-2">
-            <Text className="font-bold text-2xl text-center mt-2">{`${values[idx].question}`}</Text>
+            <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[idx].question}`}</Text>
             <View className="flex-row justify-evenly p-3 flex-wrap">
             <View className="flex-row">
                 <RadioButton
-                value='Nigdy'
-                status={ booleanValue === 'Nigdy' ? 'checked' : 'unchecked' }
-                onPress={() => {(setBooleanValue('Nigdy')); values[idx].answer = 'Nigdy'}}
+                value='Never'
+                status={ booleanValue === 'Never' ? 'checked' : 'unchecked' }
+                onPress={() => {(setBooleanValue('Never')); values[idx].answer = 'Never'}}
                 />
-                <Text className="text-lg m-1">Nigdy</Text>
+                <Text className="text-white text-lg m-1">Never</Text>
             </View>
             <View className="flex-row">
                 <RadioButton
-                value='Rzadko'
-                status={ booleanValue === 'Rzadko' ? 'checked' : 'unchecked' }
-                onPress={() => {(setBooleanValue('Rzadko')); values[idx].answer = 'Rzadko'}}
+                value='Rare'
+                status={ booleanValue === 'Rare' ? 'checked' : 'unchecked' }
+                onPress={() => {(setBooleanValue('Rare')); values[idx].answer = 'Rare'}}
                 />
-                <Text className="text-lg m-1">Rzadko</Text>
+                <Text className="text-white text-lg m-1">Rare</Text>
             </View>
             <View className="flex-row">
                 <RadioButton
-                value='Czasami'
-                status={ booleanValue === 'Czasami' ? 'checked' : 'unchecked' }
-                onPress={() => {(setBooleanValue('Czasami')); values[idx].answer = 'Czasami'}}
+                value='Sometimes'
+                status={ booleanValue === 'Sometimes' ? 'checked' : 'unchecked' }
+                onPress={() => {(setBooleanValue('Sometimes')); values[idx].answer = 'Sometimes'}}
                 />
-                <Text className="text-lg m-1">Czasami</Text>
+                <Text className="text-white text-lg m-1">Sometimes</Text>
             </View>
             <View className="flex-row">
                 <RadioButton
-                value='Często'
-                status={ booleanValue === 'Często' ? 'checked' : 'unchecked' }
-                onPress={() => {(setBooleanValue('Często')); values[idx].answer = 'Często'}}
+                value='Often'
+                status={ booleanValue === 'Often' ? 'checked' : 'unchecked' }
+                onPress={() => {(setBooleanValue('Often')); values[idx].answer = 'Often'}}
                 />
-                <Text className="text-lg m-1">Często</Text>
+                <Text className="text-white text-lg m-1">Often</Text>
             </View>
             <View className="flex-row">
                 <RadioButton
-                value='Niemal zawsze'
-                status={ booleanValue === 'Niemal zawsze' ? 'checked' : 'unchecked' }
-                onPress={() => {(setBooleanValue('Niemal zawsze')); values[idx].answer = 'Niemal zawsze'}}
+                value='Almost always'
+                status={ booleanValue === 'Almost always' ? 'checked' : 'unchecked' }
+                onPress={() => {(setBooleanValue('Almost always')); values[idx].answer = 'Almost always'}}
                 />
-                <Text className="text-lg m-1">Niemal zawsze</Text>
+                <Text className="text-white text-lg m-1">Almost always</Text>
             </View>
             </View>
         </View>
