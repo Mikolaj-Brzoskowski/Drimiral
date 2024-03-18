@@ -1,59 +1,23 @@
-import { View, Text, ScrollView } from 'react-native'
-import React, { useRef, useState } from 'react'
-import BackArrow from '../components/BackArrow';
-import AddNote from '../components/AddNote';
-import DeleteNote from '../components/DeleteNote';
-import SearchBar from '../components/SearchBar';
-import Note from '../components/Note';
-import uuid from 'react-native-uuid';
-import { useDispatch, useSelector } from 'react-redux';
-import { addGoal, editGoal, getGoals, removeGoal } from '../features/goalsSlice';
-import CollorButton from '../components/ColorButton';
-
+import React from 'react'
+import {WebView} from 'react-native-webview'
 
 export default function Music() {
-
-  const [isDeleteButtonActive, setDeleteButtonActive] = useState(false)
-  const [isColorButtonActive, setColorButtonActive] = useState(false)
-  const dispatch = useDispatch()
-  const notes = useSelector(getGoals)
-  const [searchQuery, setSearchQuery] = useState('')
-  const scrollRef = useRef()
-
-  const onAddBtnClick = () => {
-    dispatch(addGoal({title: '', note: '', id: uuid.v4(), date: new Date().toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone }), selectedColor: '#6159E6'}))
-    scrollRef.current?.scrollTo({
-      y: 0,
-      animated: true,
-    });
-  }
-
-  const saveFunction = (id, title, note, date, selectedColor) => {
-    dispatch(editGoal({title: title, note: note, id: id, date: date, selectedColor: selectedColor}))
-  }
-
-  const onDelBtnClick = () => {
-    setDeleteButtonActive(!isDeleteButtonActive)
-  };
-
-  const onColorBtnClick = () => {
-    setColorButtonActive(!isColorButtonActive)
-  };
-
-  const onDelConfirmButtonClick = (id) => {
-    dispatch(removeGoal({id}))
-  }
-
-  const searchFliter = (element) => {
-    if (element.title.toLowerCase().includes(searchQuery.toLowerCase()) || element.note.toLowerCase().includes(searchQuery.toLowerCase())) {
-      return element
-    }
-  }
-
   return (
-    <ScrollView stickyHeaderIndices={[0]} ref={scrollRef}>
-      
-    </ScrollView>
-      
+    <WebView
+    className='bg-black mt-5'
+    source={{ html: `
+    <head>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+    </head>
+    <body>
+    <div style="display: flex; flex-direction: column; row-gap: 30px;">
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/playlist/5FmmxErJczcrEwIFGIviYo?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX60xkhEfNtud?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2lpzqBiDdUIvaWyWFrZPs8?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7FaW2WBTOWUIB5SpUQCPZF?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    </body>` }}
+  />
   )
 }
+

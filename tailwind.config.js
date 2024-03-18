@@ -9,6 +9,11 @@ module.exports = {
     extend: {
       textColor: colors.white
     },
+    scale: {
+      '175': '1.75',
+      '200': '2.0',
+      '250': '2.5',
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',

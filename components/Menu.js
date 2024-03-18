@@ -15,7 +15,7 @@ export default function Menu({closeMenu}) {
         <TouchableOpacity onPress={() => {navigation.navigate('Guides'); closeMenu()}} className="p-2 bg-black w-full">
           <Text className="text-white text-xl text-center">Guides</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {navigation.navigate('Goals'); closeMenu()}} className="p-2 bg-black w-full">
+        <TouchableOpacity onPress={() => {navigation.navigate('Music'); closeMenu()}} className="p-2 bg-black w-full">
           <Text className="text-white text-xl text-center">Music</Text>
         </TouchableOpacity>
     </View>
