@@ -35,7 +35,7 @@ The **Drimiral** is a mobile application built using the React Native framework.
     - Run `yarn expo start` in your terminal to launch the app.
 
 ## Building APK file
-**Configure a Profile for APKs:**
+**Configure a Profile for APKs:**\
 In your project’s root directory, create a file named eas.json (if it doesn’t exist).\
 Inside eas.json, add a build profile with the desired properties for generating an APK. For example:
 
@@ -56,14 +56,14 @@ You can customize the profile name (e.g., “preview”) as needed.
 **Run the Build:**
 Open your terminal and execute the following command:\
 `npx eas build -p android --profile preview`\
-Replace “preview” with the name of your chosen profile.\
+Replace “preview” with the name of your chosen profile.
 
 **Install on Emulator or Physical Device:**
 
 *If you’re using an emulator (virtual device):*\
 Ensure you have set up an Android Emulator using Android Studio.\
 After the build completes, the CLI will prompt you to download and install the APK on the emulator. Confirm by pressing “Y.”\
-The installed app will appear on the emulator’s home screen.\
+The installed app will appear on the emulator’s home screen.
 
 *If you’re using a physical device:*\
 Once the build is complete, copy the URL to the APK from the build details page or the link provided by EAS.\

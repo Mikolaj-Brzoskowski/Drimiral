@@ -1,4 +1,4 @@
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import React from 'react'
 import { CheckIcon } from 'react-native-heroicons/solid';
 import ColorPalette from 'react-native-color-palette'
@@ -17,8 +17,15 @@ export default function ColorPicker({colorValue, setColorValue}) {
           color:`white`
         }}
         icon={
-          <CheckIcon size={25}  color={`#6159E6`}/>}
+          <CheckIcon size={25}  color={`black`}/>}
         />
+        <View className="flex flex-row justify-around">
+          <Text className="text-white"> Resting</Text>
+          <Text className="text-white"> Active</Text>
+          <Text className="text-white">Nightmare</Text>
+          <Text className="text-white">Lucid   </Text>
+          <Text className="text-white">Others </Text>
+        </View>
     </View>
   )
 }
