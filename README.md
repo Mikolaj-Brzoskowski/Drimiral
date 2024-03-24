@@ -1,4 +1,4 @@
-# Drimiral_native
+# Drimiral
 
 The **Drimiral** is a mobile application built using the React Native framework. It allows users to create and manage notes related to their dreams. Whether you want to jot down a vivid dream, analyze recurring themes, or simply keep track of your subconscious adventures, this app has you covered.
 
@@ -36,7 +36,7 @@ The **Drimiral** is a mobile application built using the React Native framework.
 
 ## Building APK file
 **Configure a Profile for APKs:**
-In your project’s root directory, create a file named eas.json (if it doesn’t exist).
+In your project’s root directory, create a file named eas.json (if it doesn’t exist).\
 Inside eas.json, add a build profile with the desired properties for generating an APK. For example:
 
 ```
@@ -54,19 +54,19 @@ Inside eas.json, add a build profile with the desired properties for generating 
 You can customize the profile name (e.g., “preview”) as needed.
 
 **Run the Build:**
-Open your terminal and execute the following command:
-`npx eas build -p android --profile preview`
-Replace “preview” with the name of your chosen profile.
+Open your terminal and execute the following command:\
+`npx eas build -p android --profile preview`\
+Replace “preview” with the name of your chosen profile.\
 
 **Install on Emulator or Physical Device:**
 
-*If you’re using an emulator (virtual device):*
-Ensure you have set up an Android Emulator using Android Studio.
-After the build completes, the CLI will prompt you to download and install the APK on the emulator. Confirm by pressing “Y.”
-The installed app will appear on the emulator’s home screen.
+*If you’re using an emulator (virtual device):*\
+Ensure you have set up an Android Emulator using Android Studio.\
+After the build completes, the CLI will prompt you to download and install the APK on the emulator. Confirm by pressing “Y.”\
+The installed app will appear on the emulator’s home screen.\
 
-*If you’re using a physical device:*
-Once the build is complete, copy the URL to the APK from the build details page or the link provided by EAS.
+*If you’re using a physical device:*\
+Once the build is complete, copy the URL to the APK from the build details page or the link provided by EAS.\
 Send that URL to your device and open it to download and install the APK.
 
 ## Contributors
