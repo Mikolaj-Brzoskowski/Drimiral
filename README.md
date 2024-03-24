@@ -8,11 +8,12 @@ The **Drimiral** is a mobile application built using the React Native framework.
 2. **Categorization (WIP)**: Organize your dream notes into custom categories or tags. Group similar dreams together for better management and quick retrieval.
 3. **Guides and Tips**: Access helpful articles and tips on improving sleep quality, enhancing dream recall, and understanding dream symbolism.
 4. **Embemed playlists with sleep music**
-5. **Dark Mode **: Dark mode UI for comfortable nighttime note-taking and reduced eye strain.
-6. **Export Options (WIP)**:
+5. **Dark Mode**: Dark mode UI for comfortable nighttime note-taking and reduced eye strain.
+6. **Automatic backup to Google account** 
+7. **Export Options (WIP)**:
    - Export notes as HTML, Markdown (MD), PDF, or plain text (TXT) files.
    - Share your dream insights with others or keep them for personal reference.
-7. **Optional Sleep Routine Survey**: Participate in an optional survey to share details about your daily sleep habits. This data can enhance your dream analysis.
+8. **Optional Sleep Routine Survey**: Participate in an optional survey to share details about your daily sleep habits. This data can enhance your dream analysis.
 
 ## Getting Started
 
