@@ -49,29 +49,6 @@ export default function Home() {
     <ScrollView className="pt-2 p-1">
       <Text className="self-center p-2 w-10/12 text-3xl font-bold text-center text-white">Homepage</Text>
       {isDailyAvailable()}
-      {/* buttons for development only */}
-      <View>
-      <WebView
-          scalesPageToFit={true}
-          bounces={false}
-          javaScriptEnabled
-          style={{ width: width }}
-          source={{
-            html: `
-                  <!DOCTYPE html>
-                  <html>
-                    <head></head>
-                    <body>
-                      <div id="baseDiv"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZd79rJ6a7lp?utm_source=generator&theme=0" 
-                      width="100%" height="152" frameBorder="0" allowfullscreen="" 
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
-                    </body>
-                  </html>
-            `,
-          }}
-          automaticallyAdjustContentInsets={false}
-        />
-      </View>
     </ScrollView>
   )
 }

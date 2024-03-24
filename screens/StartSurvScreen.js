@@ -9,7 +9,7 @@ export default function StartSurv() {
     <SafeAreaView>
       <ScrollView>
         <View className="p-1 flex flex-row flex-wrap">
-          <Text className="self-center p-2 w-full text-3xl font-bold text-center">Starting questions</Text>
+          <Text className="self-center p-2 w-full text-3xl font-bold text-center text-white">Starting questions</Text>
           <Starting/>
         </View>
       </ScrollView>
