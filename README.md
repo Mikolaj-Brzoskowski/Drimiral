@@ -7,7 +7,7 @@ The **Drimiral** is a mobile application built using the React Native framework.
 1. **Note Creation**: Easily create new dream notes with a title, description, and any relevant details.
 2. **Categorization (WIP)**: Organize your dream notes into custom categories or tags. Group similar dreams together for better management and quick retrieval.
 3. **Guides and Tips**: Access helpful articles and tips on improving sleep quality, enhancing dream recall, and understanding dream symbolism.
-4. **Embemed playlists with sleep music (WIP)**
+4. **Embemed playlists with sleep music**
 5. **Dark Mode **: Dark mode UI for comfortable nighttime note-taking and reduced eye strain.
 6. **Export Options (WIP)**:
    - Export notes as HTML, Markdown (MD), PDF, or plain text (TXT) files.
@@ -30,6 +30,8 @@ The **Drimiral** is a mobile application built using the React Native framework.
 4. **Run the App using Expo**:
     - Connect a physical device (in debugging mode) or use an emulator (optionaly: use provided by Expo CLI link and app to connect preview).
     - Run `yarn expo start` in your terminal to launch the app.
+
+## Building APK file
 
 ## Contributors
 - Mikołaj Brzoskowski
