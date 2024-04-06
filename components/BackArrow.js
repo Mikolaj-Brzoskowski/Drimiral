@@ -9,7 +9,7 @@ export default function BackArrow({text}) {
 
   return (
     <TouchableOpacity
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('Drimiral')}
         className="bg-violet rounded-full p-2 flex items-center self-center">
         <ArrowLeftIcon size={30} color='white'/>
     </TouchableOpacity>

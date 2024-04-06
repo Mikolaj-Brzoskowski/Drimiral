@@ -7,7 +7,10 @@ module.exports = {
   "./screens/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      textColor: colors.white
+      textColor: colors.white,
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif'],
+      },
     },
     scale: {
       '175': '1.75',

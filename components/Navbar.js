@@ -29,13 +29,13 @@ export default function NavBar() {
         barStyle='light-content'
       />
         <View className="flex flex-row h-15 justify-between px-3 py-1 items-center bg-black border-2 border-white-500">
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Home')}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Drimiral')}>
           <Image
           source={require('../assets/drimiral.png')}
           className="h-14 w-14 rounded-full"
           />
         </TouchableWithoutFeedback>
-        <Text id="Current_screen" className="text-white text-xl">{screenName}</Text>
+        <Text id="Current_screen" className="text-violet text-2xl font-roboto">{screenName}</Text>
         <View className="relative">
             <TouchableOpacity 
             className={`rounded-full p-2 self-center bg-violet`}

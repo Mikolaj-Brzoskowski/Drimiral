@@ -35,7 +35,7 @@ const Navigation = props => {
         <Stack.Navigator screenOptions={{header: ({}) => <NavBar/>}}>
         {useSelector(isStartAvailable) && 
         (<Stack.Screen name="Welcome" component={Welcome} options={{headerShown: false}}/>)}
-            <Stack.Screen name="Home" component={Home}/>
+            <Stack.Screen name="Drimiral" component={Home}/>
             <Stack.Screen name="Journal" component={Journal}/>
             <Stack.Screen name="Guides" component={Guides}/>
             <Stack.Screen name="Music" component={Music}/>
