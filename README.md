@@ -71,8 +71,9 @@ Send that URL to your device and open it to download and install the APK.
 
 ## Screenshots
 <div>
-<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/mainpage.jpg" width=24% height=24%>
-<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/notes.jpg" width=24% height=24%>
-<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/survey.jpg" width=24% height=24%>
-<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/guides.jpg" width=24% height=24%>
+<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/mainpage.jpg" width=25% height=25%>
+<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/notes.jpg" width=25% height=25%>
+<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/survey.jpg" width=25% height=25%>
+<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/guides.jpg" width=25% height=25%>
+<img align=top src="https://github.com/Mikolaj-Brzoskowski/Drimiral_native/blob/master/assets/screenshots/music.jpg" width=25% height=25%>
 </div>
