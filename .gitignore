@@ -17,3 +17,5 @@ web-build/
 .metro-health-check*
 .env
 %ProgramData%
+features/AppScript.js
+features/DailyScript.js
