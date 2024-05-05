@@ -9,9 +9,10 @@ import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
 import { startSurveyDone } from '../features/userSlice'
 import moment from 'moment';
-import {START_URL} from '@env'
+import { START_URL } from '@env'
 import NetInfo from '@react-native-community/netinfo';
 import axios from 'axios';
+import NumericInput from './NumericInput'
 
 const Starting = () => { 
 
@@ -65,9 +66,8 @@ const Starting = () => {
         Question_10: values[9].answer,
         Question_11: values[10].answer,
         Question_12: values[11].answer,
-        Question_13: values[12].answer,
-        Age: values[13].answer,
-        Gender: values[14].answer
+        Age: values[12].answer,
+        Gender: values[13].answer
         }
         Object.keys(sendObject).forEach(key => {
         if (sendObject[key] === true){
@@ -82,7 +82,7 @@ const Starting = () => {
         }).catch((err) => {
         console.log(err)
         })
-        navigation.navigate('Home'); 
+        navigation.navigate('Drimiral'); 
         dispatch(startSurveyDone())
     }
     
@@ -119,79 +119,51 @@ const Starting = () => {
                 </View>
                 <RadioButtons values={values} idx={0}/>
                 <RadioButtons values={values} idx={1}/>
-                <RadioButtons values={values} idx={2}/>
-                <View className="border-t-2 border-gray-300 w-full mt-2">
-                <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[3].question}`}</Text>
-                <TextInput
-                name={`${3}.answer`}
-                onChangeText={handleChange(`${3}.answer`)} 
-                onBlur={handleBlur(`${3}.answer`)} 
-                value={values[3].answer} 
-                className="border rounded p-2 m-2 text-lg"
-                inputMode='numeric' 
-                style={{borderColor: '#6159E6'}} 
-                cursorColor='#6159E6'
-                placeholderTextColor="#6159E6"
-                color="white"
-                placeholder="Type here..." 
-                keyboardType="default"/>
-                </View>
-                <RadioButtons values={values} idx={4}/>
+                <NumericInput values={values} handleChange={handleChange} handleBlur={handleBlur} idx={2} />
+                <RadioButtons values={values} idx={3}/>
+                <RateRadioButtons values={values} idx={4}/>
                 <RateRadioButtons values={values} idx={5}/>
                 <RateRadioButtons values={values} idx={6}/>
                 <RateRadioButtons values={values} idx={7}/>
                 <RateRadioButtons values={values} idx={8}/>
-                <RateRadioButtons values={values} idx={9}/>
+                <RadioButtons values={values} idx={9}/>
                 <RadioButtons values={values} idx={10}/>
-                <RadioButtons values={values} idx={11}/>
-                <RadioButtons values={values} idx={12}/>
+                <RateRadioButtons values={values} idx={11}/>
+                <NumericInput values={values} handleChange={handleChange} handleBlur={handleBlur} idx={12} />
                 <View className="border-t-2 border-gray-300 w-full mt-2">
                     <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[13].question}`}</Text>
-                    <TextInput onChangeText={handleChange(`${13}.answer`)} 
-                    onBlur={handleBlur(`${13}.answer`)} value={values[13].answer} 
-                    className="border rounded p-2 m-2 text-lg"
-                    inputMode='numeric' 
-                    style={{borderColor: '#6159E6'}} 
-                    cursorColor='#6159E6'
-                    placeholderTextColor="#6159E6"
-                    color="white"
-                    placeholder="Type here..." 
-                    keyboardType="default"/>
-                    <View className="border-t-2 border-gray-300 w-full mt-2">
-                        <Text className="text-white font-bold text-2xl text-center mt-2">{`${values[14].question}`}</Text>
-                        <View className="flex-row justify-evenly p-3 flex-wrap">
-                            <View className="flex-row">
-                                <RadioButton
-                                value='Man'
-                                status={ genderValue === 'Man' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setGenderValue('Man')); values[14].answer = 'Man'}}
-                                />
-                                <Text className="text-white text-lg m-1">Man</Text>
-                            </View>
-                            <View className="flex-row">
-                                <RadioButton
-                                value='Woman'
-                                status={ genderValue === 'Woman' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setGenderValue('Woman')); values[14].answer = 'Woman'}}
-                                />
-                                <Text className="text-white text-lg m-1">Woman</Text>
-                            </View>
-                            <View className="flex-row">
-                                <RadioButton
-                                value='Other'
-                                status={ genderValue === 'Other' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setGenderValue('Other')); values[14].answer = 'Other'}}
-                                />
-                                <Text className="text-white text-lg m-1">Other</Text>
-                            </View>
-                            <View className="flex-row">
-                                <RadioButton
-                                value='None'
-                                status={ genderValue === 'None' ? 'checked' : 'unchecked' }
-                                onPress={() => {(setGenderValue('None')); values[14].answer = 'None'}}
-                                />
-                                <Text className="text-white text-lg m-1">None</Text>
-                            </View>
+                    <View className="flex-row justify-evenly p-3 flex-wrap">
+                        <View className="flex-row">
+                            <RadioButton
+                            value='Man'
+                            status={ genderValue === 'Man' ? 'checked' : 'unchecked' }
+                            onPress={() => {(setGenderValue('Man')); values[13].answer = 'Man'}}
+                            />
+                            <Text className="text-white text-lg m-1">Man</Text>
+                        </View>
+                        <View className="flex-row">
+                            <RadioButton
+                            value='Woman'
+                            status={ genderValue === 'Woman' ? 'checked' : 'unchecked' }
+                            onPress={() => {(setGenderValue('Woman')); values[13].answer = 'Woman'}}
+                            />
+                            <Text className="text-white text-lg m-1">Woman</Text>
+                        </View>
+                        <View className="flex-row">
+                            <RadioButton
+                            value='Other'
+                            status={ genderValue === 'Other' ? 'checked' : 'unchecked' }
+                            onPress={() => {(setGenderValue('Other')); values[13].answer = 'Other'}}
+                            />
+                            <Text className="text-white text-lg m-1">Other</Text>
+                        </View>
+                        <View className="flex-row">
+                            <RadioButton
+                            value='None'
+                            status={ genderValue === 'None' ? 'checked' : 'unchecked' }
+                            onPress={() => {(setGenderValue('None')); values[13].answer = 'None'}}
+                            />
+                            <Text className="text-white text-lg m-1">None</Text>
                         </View>
                     </View>
                 </View>

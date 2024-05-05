@@ -26,10 +26,6 @@ const Navigation = props => {
     },
   };
 
-  const networkStatus = async () => {
-    await Network.getNetworkStateAsync().isConnected;
-  }
-
   return (
     <NavigationContainer theme={MyTheme}>
         <Stack.Navigator screenOptions={{header: ({}) => <NavBar/>}}>

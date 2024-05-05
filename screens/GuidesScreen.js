@@ -1,6 +1,5 @@
 import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
-import BackArrow from '../components/BackArrow';
 import AccordionItem from '../components/AccordionItem';
 
 export default function Guides() {

@@ -1,7 +1,7 @@
 
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
-import { Pressable, Text, View, TouchableOpacity } from 'react-native'
+import { Text, View, TouchableOpacity } from 'react-native'
 
 export default function Menu({closeMenu}) {
 

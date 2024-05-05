@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Text,
-  TouchableOpacity,
-  View,
-  Platform,
-  UIManager,
-  LayoutAnimation
-} from 'react-native';
+import { Text,TouchableOpacity, View, Platform, UIManager, LayoutAnimation } from 'react-native';
 import { ChevronDownIcon, ChevronUpIcon } from 'react-native-heroicons/solid';
 
 if(Platform.OS === 'android') {

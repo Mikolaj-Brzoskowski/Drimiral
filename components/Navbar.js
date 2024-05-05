@@ -31,7 +31,7 @@ export default function NavBar() {
         <View className="flex flex-row h-15 justify-between px-3 py-1 items-center bg-black border-2 border-white-500">
         <TouchableWithoutFeedback onPress={() => navigation.navigate('Drimiral')}>
           <Image
-          source={require('../assets/drimiral.png')}
+          source={require('../assets/png/drimiral.png')}
           className="h-14 w-14 rounded-full"
           />
         </TouchableWithoutFeedback>
