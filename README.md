@@ -31,6 +31,13 @@ The **Drimiral** is a mobile application built using the React Native framework.
     - Connect a physical device (in debugging mode) or use an emulator (optionaly: use provided by Expo CLI link and app to connect preview).
     - Run `yarn expo start` in your terminal to launch the app.
 
+## Environment
+
+.env file configured in [babel.config.js](https://github.com/Mikolaj-Brzoskowski/Drimiral/blob/master/babel.config.js) with two VARs:
+- START_URL
+- DAILY_URL
+Both URL provided by Apps Script code (Web APP URL). Functions for attaching app and Spreadsheed will be later added as separate files.
+
 ## Building APK file
 **Configure a Profile for APKs:**\
 In your project’s root directory, create a file named eas.json (if it doesn’t exist).\
