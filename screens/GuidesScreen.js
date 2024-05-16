@@ -7,6 +7,8 @@ export default function Guides() {
   return (
     <ScrollView >
       <View className="flex-column p-2 w-full items-center">
+      <AccordionItem className="b" title="Use an orange light filter on your mobile device">
+        </AccordionItem>
         <AccordionItem className="b" title="Collecting dreams, listing them and detailing the Dream Signs">
           <Text className="text-white text-lg">{`1. Write down dreams in some form of diary - the most important thing is to write down anything after each dream. Even if they are single words, they can prove crucial to detailing recurring dream patterns so that you can be aware of them while you are dreaming and better prepare for them.
 

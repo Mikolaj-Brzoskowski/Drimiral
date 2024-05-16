@@ -17,17 +17,8 @@ const Stack = createNativeStackNavigator();
 
 const Navigation = props => {
 
-  const MyTheme = {
-    ...DarkTheme,
-    colors: {
-      ...DarkTheme.colors,
-      primary: `#6159E6`,
-      text: `#FFFFFF`,
-    },
-  };
-
   return (
-    <NavigationContainer theme={MyTheme}>
+    <NavigationContainer theme={DarkTheme}>
         <Stack.Navigator screenOptions={{header: ({}) => <NavBar/>}}>
         {useSelector(isStartAvailable) && 
         (<Stack.Screen name="Welcome" component={Welcome} options={{headerShown: false}}/>)}
