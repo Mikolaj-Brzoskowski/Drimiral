@@ -1,7 +1,49 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { useState } from 'react';
 import {WebView} from 'react-native-webview'
+import NetInfo from '@react-native-community/netinfo';
+import { useNavigation } from '@react-navigation/native';
+import { Alert } from 'react-native';
 
 export default function Music() {
+
+  const [netStatus, setNetStatus] = useState()
+  const navigation = useNavigation()
+  const isFirstRender = useRef(true);
+
+  const getConnectionStatus = () => {
+    NetInfo.fetch().then(state => {
+        setNetStatus(state.isInternetReachable);
+    });
+  }
+
+  const createConnectionAlert = () =>
+  Alert.alert('No Network Connection!', 'Please connect to the Internet before entering.', [
+    {
+      text: 'Ok',
+      style: 'cancel',
+    }
+  ]);
+  
+  useEffect(() => {
+    getConnectionStatus()
+  },[])
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+        isFirstRender.current = false;
+        return;
+    }
+    else {
+      if (!netStatus){
+        createConnectionAlert()
+        setNetStatus()
+        navigation.navigate('Drimiral')
+      }
+    }
+},[netStatus])
+
+
   return (
     <WebView
     className='bg-black mt-5'
